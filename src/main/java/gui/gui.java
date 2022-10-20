@@ -1,4 +1,4 @@
-package xdd;
+package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +23,7 @@ class gui implements ActionListener{
 	private static JFrame f;
 	private static ArrayList<String> emails = new ArrayList<String>();
 	private static ArrayList<String> passwords = new ArrayList<String>();
-	private static String path = "C:\\Users\\Kameel\\eclipse-workspace\\login\\src\\xdd\\user.csv";
+	private static String path = "user.csv";
 	
 	
     public static void load(String path) throws Exception{
@@ -76,7 +76,6 @@ class gui implements ActionListener{
         
     }
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		String user = userT.getText();
