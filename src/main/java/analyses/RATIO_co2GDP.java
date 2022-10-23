@@ -6,21 +6,15 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class RATIO_co2GDP {
+public class RATIO_co2GDP extends Analysis{
 	
 	private final String co2code = "EN.ATM.CO2E.PC";
 	private final String gdpcode = "NY.GDP.PCAP.CD";
 	
 	private static DataFetcher dataFetcher = new DataFetcher();
-	private String country;
-	private int from;
-	private int to;
 	
 	public RATIO_co2GDP(String country, int from, int to){
-
-		this.country = country ;
-		this.from = from;
-		this.to = to;
+		super(country, from, to);
 	}
 	
 	public void runAnalyses() {

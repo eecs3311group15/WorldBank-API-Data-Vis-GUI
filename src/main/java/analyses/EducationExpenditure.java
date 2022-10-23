@@ -6,21 +6,16 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class EducationExpenditure {
+public class EducationExpenditure extends Analysis{
 
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
 //	private final String otherCode = "SH.XPD.CHEX.GD.ZS";
 	
 	private static DataFetcher dataFetcher = new DataFetcher();
-	private String country;
-	private int from;
-	private int to;
+
 	
 	public EducationExpenditure(String country, int from, int to){
-
-		this.country = country ;
-		this.from = from;
-		this.to = to;
+		super(country, from, to);
 	}
 	
 	public void runAnalyses() {

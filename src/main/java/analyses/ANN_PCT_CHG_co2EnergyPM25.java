@@ -6,21 +6,17 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class ANN_PCT_CHG_co2EnergyPM25 {
+public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	
 	private final String co2code = "EN.ATM.CO2E.PC";
 	private final String energycode = "EG.USE.PCAP.KG.OE";
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	
 	private static DataFetcher dataFetcher = new DataFetcher();
-	private String country;
-	private int from;
-	private int to;
+
 	
 	public ANN_PCT_CHG_co2EnergyPM25(String country, int from, int to) {
-		this.country = country ;
-		this.from = from;
-		this.to = to;
+		super(country, from, to);
 	}
 	
 	public void runAnalyses() {

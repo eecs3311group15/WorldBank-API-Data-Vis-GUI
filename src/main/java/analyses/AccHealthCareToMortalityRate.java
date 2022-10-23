@@ -6,22 +6,16 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class AccHealthCareToMortalityRate {
+public class AccHealthCareToMortalityRate extends Analysis{
 
 
 	private final String accessCode= "SH.ACS.MONY.Q1.ZS";
 	private final String mortalityCode = "SP.DYN.IMRT.IN";
 	
 	private static DataFetcher dataFetcher = new DataFetcher();
-	private String country;
-	private int from;
-	private int to;
 	
 	public AccHealthCareToMortalityRate(String country, int from, int to){
-
-		this.country = country ;
-		this.from = from;
-		this.to = to;
+		super(country, from, to);
 	}
 	
 	public void runAnalyses() {
