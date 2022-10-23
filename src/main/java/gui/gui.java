@@ -95,7 +95,7 @@ class gui implements ActionListener{
 		if (success == 1) {
 		
 			System.out.println(user + "  " + password);
-			System.out.println("Success");
+			System.out.println("Login Success");
 			f.setVisible(false);
 			success = 0;
 		
@@ -104,7 +104,7 @@ class gui implements ActionListener{
 		else {
 			
 			System.out.println(user + "  " + password);
-			System.out.println("Failed");
+			System.out.println("Login Failed");
 			
 		}
 	}
