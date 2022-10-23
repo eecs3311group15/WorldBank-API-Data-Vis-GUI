@@ -10,8 +10,6 @@ public class ForestAreaToLand extends Analysis{
 	private final String forestCode = "AG.LND.FRST.ZS";
 //	private final String landCode = "NY.GDP.PCAP.CD";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-	
 	public ForestAreaToLand(String country, int from, int to){
 		super(country, from, to);
 	}

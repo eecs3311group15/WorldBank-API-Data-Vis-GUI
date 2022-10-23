@@ -13,9 +13,6 @@ public class EducationToHealth extends Analysis{
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
 	private final String healthCode = "SH.XPD.CHEX.GD.ZS";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-
-	
 	public EducationToHealth(String country, int from, int to){
 		super(country, from, to);
 	}

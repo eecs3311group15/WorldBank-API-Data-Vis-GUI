@@ -12,8 +12,6 @@ public class PM25ToForest extends Analysis{
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	private final String forestcode = "AG.LND.FRST.ZS";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-
 	
 	public PM25ToForest(String country, int from, int to){
 		super(country, from, to);

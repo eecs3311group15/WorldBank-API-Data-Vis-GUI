@@ -10,9 +10,7 @@ public class RATIO_co2GDP extends Analysis{
 	
 	private final String co2code = "EN.ATM.CO2E.PC";
 	private final String gdpcode = "NY.GDP.PCAP.CD";
-	
-	private static DataFetcher dataFetcher = new DataFetcher();
-	
+		
 	public RATIO_co2GDP(String country, int from, int to){
 		super(country, from, to);
 	}

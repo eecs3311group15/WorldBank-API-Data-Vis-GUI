@@ -11,7 +11,6 @@ public class HealthExpendToHospitalBeds extends Analysis{
 	private final String healthCode= "SH.XPD.CHEX.PC.CD";
 	private final String bedsCode = "SH.MED.BEDS.ZS";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
 	
 	public HealthExpendToHospitalBeds(String country, int from, int to){
 		super(country, from, to);

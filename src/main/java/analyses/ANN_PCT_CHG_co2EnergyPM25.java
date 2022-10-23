@@ -12,9 +12,6 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	private final String energycode = "EG.USE.PCAP.KG.OE";
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-
-	
 	public ANN_PCT_CHG_co2EnergyPM25(String country, int from, int to) {
 		super(country, from, to);
 	}

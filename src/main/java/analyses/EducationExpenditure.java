@@ -11,9 +11,6 @@ public class EducationExpenditure extends Analysis{
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
 //	private final String otherCode = "SH.XPD.CHEX.GD.ZS";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-
-	
 	public EducationExpenditure(String country, int from, int to){
 		super(country, from, to);
 	}

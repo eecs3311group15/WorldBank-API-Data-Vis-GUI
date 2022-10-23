@@ -12,8 +12,6 @@ public class AccHealthCareToMortalityRate extends Analysis{
 	private final String accessCode= "SH.ACS.MONY.Q1.ZS";
 	private final String mortalityCode = "SP.DYN.IMRT.IN";
 	
-	private static DataFetcher dataFetcher = new DataFetcher();
-	
 	public AccHealthCareToMortalityRate(String country, int from, int to){
 		super(country, from, to);
 	}
