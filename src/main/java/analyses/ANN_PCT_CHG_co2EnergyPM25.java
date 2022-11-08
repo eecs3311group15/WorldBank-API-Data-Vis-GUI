@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import com.google.gson.JsonArray;
 
-import datafetcher.DataFetcher;
+import datafetcher.*;
 
 public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	
@@ -25,18 +25,18 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 		
 		int sizeOfResults = co2.get(1).getAsJsonArray().size();
 		for (int i = 1; i < sizeOfResults-1; i++) {
-			int year = co2.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt();
-			
-			double co2Value = co2.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
-			double prev_co2Value = co2.get(1).getAsJsonArray().get(i-1).getAsJsonObject().get("value").getAsDouble();
+			int year = DataFetcherHelper.getYear(co2, i);
+
+			double co2Value = DataFetcherHelper.getValue(co2, i);
+			double prev_co2Value = DataFetcherHelper.getValue(co2, i - 1);
 			double co2_diff = co2Value - prev_co2Value;
 			
-			double energyValue = energy.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
-			double prev_energyValue = energy.get(1).getAsJsonArray().get(i-1).getAsJsonObject().get("value").getAsDouble();
+			double energyValue = DataFetcherHelper.getValue(energy, i);
+			double prev_energyValue = DataFetcherHelper.getValue(energy, i - 1);
 			double energy_diff = energyValue - prev_energyValue;
 						
-			double pm25Value = pm25.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
-			double prev_pm25Value = pm25.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
+			double pm25Value = DataFetcherHelper.getValue(pm25, i);
+			double prev_pm25Value = DataFetcherHelper.getValue(pm25, i - 1);
 			double pm25_diff = pm25Value - prev_pm25Value;
 			
 			DecimalFormat f = new DecimalFormat("##0.00000");

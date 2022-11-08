@@ -7,13 +7,13 @@ public class RunAnalyses {
 		RATIO_co2GDP test = new RATIO_co2GDP("CAN", 2000, 2001);
 		test.runAnalyses();
 		
-		ANN_PCT_CHG_co2EnergyPM25 test2 = new ANN_PCT_CHG_co2EnergyPM25("CAN", 2010, 2015);
+		ANN_PCT_CHG_co2EnergyPM25 test2 = new ANN_PCT_CHG_co2EnergyPM25("CAN", 2018, 2021);
 		test2.runAnalyses();
 		
 		ForestAreaToLand test3 = new ForestAreaToLand("CAN", 2010, 2013);
 		test3.runAnalyses();
 		
-		HealthExpendToHospitalBeds test4 = new HealthExpendToHospitalBeds("CAN", 2010, 2013);
+		/*HealthExpendToHospitalBeds test4 = new HealthExpendToHospitalBeds("CAN", 2010, 2013);
 		test4.runAnalyses();
 		
 		AccHealthCareToMortalityRate test5 = new AccHealthCareToMortalityRate("CAN", 2019, 2020);
@@ -26,7 +26,7 @@ public class RunAnalyses {
 		test7.runAnalyses();
 		
 		PM25ToForest test8 = new PM25ToForest("CAN", 2010, 2011);
-		test8.runAnalyses();
+		test8.runAnalyses();*/
 
 	}
 

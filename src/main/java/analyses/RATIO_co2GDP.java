@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import com.google.gson.JsonArray;
 
-import datafetcher.DataFetcher;
+import datafetcher.DataFetcherHelper;
 
 public class RATIO_co2GDP extends Analysis{
 	
@@ -22,9 +22,10 @@ public class RATIO_co2GDP extends Analysis{
 		
 		int sizeOfResults = co2.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {
-			double co2Value = co2.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
-			double gdpValue = gdp.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").getAsDouble();
-			int year = co2.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt();
+			double co2Value = DataFetcherHelper.getValue(co2, i);
+			double gdpValue = DataFetcherHelper.getValue(gdp, i);
+			
+			int year = DataFetcherHelper.getYear(co2, i);
 			
 			System.out.println("CO2 emissions (metric tons per capita) in " + year + " is " + co2Value);
 			System.out.println("GDP per capita (current US$) in " + year + " is " + gdpValue);

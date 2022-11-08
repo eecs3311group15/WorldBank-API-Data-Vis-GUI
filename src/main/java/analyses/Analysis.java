@@ -1,6 +1,6 @@
 package analyses;
 
-import datafetcher.DataFetcher;
+import datafetcher.*;
 
 public abstract class Analysis {
 	protected String country;
