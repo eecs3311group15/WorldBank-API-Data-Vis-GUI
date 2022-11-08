@@ -98,7 +98,7 @@ class gui implements ActionListener{
 			System.out.println("Login Success");
 			f.setVisible(false);
 			success = 0;
-		
+			MainUI.startMainUI();
 		}
 		
 		else {

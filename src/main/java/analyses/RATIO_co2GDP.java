@@ -1,6 +1,7 @@
 package analyses;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
 
@@ -10,7 +11,9 @@ public class RATIO_co2GDP extends Analysis{
 	
 	private final String co2code = "EN.ATM.CO2E.PC";
 	private final String gdpcode = "NY.GDP.PCAP.CD";
-		
+	
+	ArrayList<Double> result = new ArrayList<Double>();
+	
 	public RATIO_co2GDP(String country, int from, int to){
 		super(country, from, to);
 	}
@@ -24,17 +27,21 @@ public class RATIO_co2GDP extends Analysis{
 		for (int i = 0; i < sizeOfResults; i++) {
 			double co2Value = DataFetcherHelper.getValue(co2, i);
 			double gdpValue = DataFetcherHelper.getValue(gdp, i);
-			
-			int year = DataFetcherHelper.getYear(co2, i);
-			
-			System.out.println("CO2 emissions (metric tons per capita) in " + year + " is " + co2Value);
-			System.out.println("GDP per capita (current US$) in " + year + " is " + gdpValue);
-			
+										
 			double ratio = (co2Value/gdpValue) * 100.0;
-			DecimalFormat f = new DecimalFormat("##0.00000");
-			System.out.println("Ratio of CO2 per GDP in " + year + " is " + f.format(ratio) + "%\n");
+			result.add(ratio);			
 			
 		}
+		printResult();
+	}
+	
+	public void printResult() {
+		int year = from;
+		DecimalFormat f = new DecimalFormat("##0.00000");
+		for (int i = 0; i < result.size(); i++) {
+			System.out.println("Ratio of CO2 per GDP in " + year + " is " + f.format(result.get(i)) + "%\n");
+			year++;
+		}		
 	}
 	
 }
