@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -60,7 +61,7 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 
-	private static HashMap<String, String> countryHashMap = new HashMap<String, String>();
+	private static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
 	
 	
 	
@@ -72,10 +73,7 @@ public class MainUI extends JFrame {
 	}
 
 	private MainUI() throws IOException{
-		
-		
-		
-		
+			
 		// Set window title
 		super("Country Statistics");
 		
@@ -157,6 +155,9 @@ public class MainUI extends JFrame {
 		south.add(methodLabel);
 		south.add(methodsList);
 		south.add(recalculate);
+				
+		ActionListener actionListener = new RecalculateListener(countriesList, fromList, toList);
+		recalculate.addActionListener(actionListener);
 
 		JPanel east = new JPanel();
 
