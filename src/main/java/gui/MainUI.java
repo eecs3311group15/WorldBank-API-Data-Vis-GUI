@@ -13,6 +13,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -47,6 +50,8 @@ import org.jfree.data.time.Year;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import com.csvreader.CsvReader;
+
 public class MainUI extends JFrame {
 	/**
 	 * 
@@ -55,26 +60,48 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 
-	public static MainUI getInstance() {
+	private static HashMap<String, String> countryHashMap = new HashMap<String, String>();
+	
+	
+	
+	public static MainUI getInstance() throws IOException {
 		if (instance == null)
 			instance = new MainUI();
 
 		return instance;
 	}
 
-	private MainUI() {
+	private MainUI() throws IOException{
+		
+		
+		
+		
 		// Set window title
 		super("Country Statistics");
-
+		
+		// Load all_countires.csv into HashMap
+		CsvReader reader;
+		try {
+			reader = new CsvReader("all_countries.csv");
+			reader.readHeaders();
+			while(reader.readRecord()){
+				String country = reader.get("name");
+				String code = reader.get("country");
+				countryHashMap.put(country, code);
+	        } 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		// Set top bar
 		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
 		Vector<String> countriesNames = new Vector<String>();
-		countriesNames.add("USA");
-		countriesNames.add("Canada");
-		countriesNames.add("France");
-		countriesNames.add("China");
-		countriesNames.add("Brazil");
+		for (String i : countryHashMap.keySet()) {
+			countriesNames.add(i);
+		}       	
 		countriesNames.sort(null);
+		
 		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
 
 		JLabel from = new JLabel("From");
@@ -481,7 +508,7 @@ public class MainUI extends JFrame {
 
 	}
 
-	public static void startMainUI() {
+	public static void startMainUI() throws IOException {
 
 		JFrame frame = MainUI.getInstance();
 		frame.setSize(900, 600);

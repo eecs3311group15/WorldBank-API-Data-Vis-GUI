@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -98,7 +99,12 @@ class gui implements ActionListener{
 			System.out.println("Login Success");
 			f.setVisible(false);
 			success = 0;
-			MainUI.startMainUI();
+			try {
+				MainUI.startMainUI();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		else {

@@ -19,31 +19,31 @@ public class DataFetcher {
 		 * @return Json formatted data.
 		 */
 		public static JsonArray getJsonObject(String code, String country, int from, int to ) {
-		String urlString = String.format(
-				"http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&format=json", country, code, from, to);
-		System.out.println(urlString);
-		try {
-			URL url = new URL(urlString);
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			conn.connect();
-			int responsecode = conn.getResponseCode();
-			if (responsecode == 200) {
-				String inline = "";
-				Scanner sc = new Scanner(url.openStream());
-				while (sc.hasNext()) {
-					inline += sc.nextLine();
+			String urlString = String.format(
+					"http://api.worldbank.org/v2/country/%s/indicator/%s?date=%d:%d&format=json", country, code, from, to);
+			System.out.println(urlString);
+			try {
+				URL url = new URL(urlString);
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				conn.setRequestMethod("GET");
+				conn.connect();
+				int responsecode = conn.getResponseCode();
+				if (responsecode == 200) {
+					String inline = "";
+					Scanner sc = new Scanner(url.openStream());
+					while (sc.hasNext()) {
+						inline += sc.nextLine();
+					}
+					sc.close();
+					JsonArray jsonArray = new JsonParser().parse(inline).getAsJsonArray();
+					return jsonArray;
 				}
-				sc.close();
-				JsonArray jsonArray = new JsonParser().parse(inline).getAsJsonArray();
-				return jsonArray;
+	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block e.printStackTrace();
 			}
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block e.printStackTrace();
+			return null;
 		}
-		return null;
-	}
 
 }
 
