@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
-public class RecalculateListener implements ActionListener{
+class RecalculateListener implements ActionListener{
 	
 	private JComboBox<String> country;
 	private JComboBox<String> from;
@@ -28,6 +28,9 @@ public class RecalculateListener implements ActionListener{
 		
 		System.out.println(_country + " " + _from + " " + _to);
 		
+		AnalysesFacade preAnalysesCheck = new AnalysesFacade();
+		System.out.println("Passed Year range check: " + preAnalysesCheck.yearCheck(_from, _to));
+		System.out.println("Passed Exclusion country check: " + preAnalysesCheck.exclusionListCheck(_country));
 	}
 
 }

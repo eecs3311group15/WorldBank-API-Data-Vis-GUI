@@ -61,6 +61,7 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 
+	private final String countryPath = "all_countries.csv";
 	private static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
 	
 	
@@ -77,20 +78,11 @@ public class MainUI extends JFrame {
 		// Set window title
 		super("Country Statistics");
 		
-		// Load all_countires.csv into HashMap
-		CsvReader reader;
 		try {
-			reader = new CsvReader("all_countries.csv");
-			reader.readHeaders();
-			while(reader.readRecord()){
-				String country = reader.get("name");
-				String code = reader.get("country");
-				countryHashMap.put(country, code);
-	        } 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			countryHashMap = Helper.loadCountryData(countryPath);
+		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		
 		// Set top bar
 		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
