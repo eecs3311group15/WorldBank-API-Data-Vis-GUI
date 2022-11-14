@@ -21,7 +21,9 @@ public class Viewer_Time extends Viewer{
 	
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Time() {
+	protected Viewer_Time(String viewerTitle, String country, int from, int to) {
+		super(viewerTitle, country, from, to);
+		
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -78,7 +80,7 @@ public class Viewer_Time extends Viewer{
 		plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
 		plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
 
-		JFreeChart chart = new JFreeChart("Mortality vs Expenses & Hospital Beds",
+		JFreeChart chart = new JFreeChart(viewerTitle,
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 
 		chartPanel = new ChartPanel(chart);

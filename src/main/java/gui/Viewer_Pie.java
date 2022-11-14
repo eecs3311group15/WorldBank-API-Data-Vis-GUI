@@ -16,8 +16,8 @@ public class Viewer_Pie extends Viewer{
 	
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Pie() {
-		
+	protected Viewer_Pie(String viewerTitle, String country, int from, int to) {
+		super(viewerTitle, country, from, to);
 		// Different way to create pie chart
 		/*
 		 * var dataset = new DefaultPieDataset(); dataset.setValue("Unemployed", 3.837);
@@ -33,7 +33,7 @@ public class Viewer_Pie extends Viewer{
 		dataset.addValue(3.837, "Unemployed", "Women");
 		dataset.addValue(96.163, "Employed", "Women");
 
-		JFreeChart pieChart = ChartFactory.createMultiplePieChart("Unemployment: Men vs Women", dataset,
+		JFreeChart pieChart = ChartFactory.createMultiplePieChart(viewerTitle, dataset,
 				TableOrder.BY_COLUMN, true, true, false);
 
 		chartPanel = new ChartPanel(pieChart);

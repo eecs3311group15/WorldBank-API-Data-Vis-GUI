@@ -11,7 +11,9 @@ import javax.swing.JTextArea;
 public class Viewer_Report extends Viewer{
 	protected JScrollPane outputScrollPane;
 	
-	protected Viewer_Report() {
+	protected Viewer_Report(String viewerTitle, String country, int from, int to) {
+		super(viewerTitle, country, from, to);
+		
 		JTextArea report = new JTextArea();
 		report.setEditable(false);
 		report.setPreferredSize(new Dimension(400, 300));
@@ -19,7 +21,7 @@ public class Viewer_Report extends Viewer{
 		report.setBackground(Color.white);
 		String reportMessage, reportMessage2;
 
-		reportMessage = "Mortality vs Expenses & Hospital Beds\n" + "==============================\n" + "Year 2018:\n"
+		reportMessage = viewerTitle + "==============================\n" + "Year 2018:\n"
 				+ "\tMortality/1000 births => 5.6\n" + "\tHealth Expenditure per Capita => 10624\n"
 				+ "\tHospital Beds/1000 people => 2.92\n" + "\n" + "Year 2017:\n" + "\tMortality/1000 births => 5.7\n"
 				+ "\tHealth Expenditure per Capita => 10209\n" + "\tHospital Beds/1000 people => 2.87\n" + "\n"

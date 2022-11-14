@@ -22,7 +22,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class Viewer_Line extends Viewer{
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Line() {
+	protected Viewer_Line(String viewerTitle, String country, int from, int to) {
+		super(viewerTitle, country, from, to);
 		
 		XYSeries series1 = new XYSeries("Mortality/1000 births");
 		series1.add(2018, 5.6);
@@ -83,7 +84,7 @@ public class Viewer_Line extends Viewer{
 		chart.getLegend().setFrame(BlockBorder.NONE);
 
 		chart.setTitle(
-				new TextTitle("Mortality vs Expenses & Hospital Beds", new Font("Serif", java.awt.Font.BOLD, 18)));
+				new TextTitle(viewerTitle, new Font("Serif", java.awt.Font.BOLD, 18)));
 
 		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));

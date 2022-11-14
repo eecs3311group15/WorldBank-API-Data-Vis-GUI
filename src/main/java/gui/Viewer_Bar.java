@@ -18,7 +18,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class Viewer_Bar extends Viewer{
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Bar() {
+	protected Viewer_Bar(String viewerTitle, String country, int from, int to) {
+		super(viewerTitle, country, from, to);
 		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.setValue(5.6, "Mortality/1000 births", "2018");
@@ -70,7 +71,7 @@ public class Viewer_Bar extends Viewer{
 		plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
 		plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
 
-		JFreeChart barChart = new JFreeChart("Mortality vs Expenses & Hospital Beds",
+		JFreeChart barChart = new JFreeChart(viewerTitle,
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 
 		// Different way to create bar chart

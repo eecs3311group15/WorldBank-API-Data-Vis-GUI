@@ -131,12 +131,12 @@ public class MainUI extends JFrame {
 		JLabel methodLabel = new JLabel("        Choose analysis method: ");
 
 		Vector<String> methodsNames = new Vector<String>();
-		methodsNames.add("Mortality");
-		methodsNames.add("Mortality vs Expenses");
-		methodsNames.add("Mortality vs Expenses & Hospital Beds");
-		methodsNames.add("Mortality vs GDP");
-		methodsNames.add("Unemployment vs GDP");
-		methodsNames.add("Unemployment");
+		methodsNames.add("Annual % change of CO2 - Energy use - PM2.5");
+		methodsNames.add("Annual % change of PM2.5 - Forest area");
+		methodsNames.add("Ratio of CO2 - GDP");
+		methodsNames.add("Average of education expenditure");
+		methodsNames.add("Accessing health care problem - Mortality rate, infant");
+		methodsNames.add("Annual % change of education expenditure - health expenditure");
 
 		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
 
@@ -168,7 +168,7 @@ public class MainUI extends JFrame {
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(scrollPane, BorderLayout.WEST);
 		
-		ActionListener addViewListener = new Listener_AddView(viewsList);
+		ActionListener addViewListener = new Listener_AddView(viewsList, methodsList, countriesList, fromList, toList);
 		addView.addActionListener(addViewListener);
 		
 		ActionListener removeViewListener = new Listener_RemoveView();
