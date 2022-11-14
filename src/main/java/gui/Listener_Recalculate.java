@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
-class RecalculateListener implements ActionListener{
+class Listener_Recalculate implements ActionListener{
 	
 	private JComboBox<String> country;
 	private JComboBox<String> from;
 	private JComboBox<String> to;
 	
-	public RecalculateListener (JComboBox<String> country, JComboBox<String> from, JComboBox<String> to) {
+	public Listener_Recalculate (JComboBox<String> country, JComboBox<String> from, JComboBox<String> to) {
 				
 		this.country = country;
 		this.from = from;

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-class LoginListener implements ActionListener{
+class Listener_Login implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		String user = LoginModule.userT.getText();

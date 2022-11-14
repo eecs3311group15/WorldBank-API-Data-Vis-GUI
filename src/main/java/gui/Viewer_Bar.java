@@ -15,8 +15,11 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Viewer_Bar {
-	protected Viewer_Bar(JPanel west) {
+public class Viewer_Bar extends Viewer{
+	protected ChartPanel chartPanel;
+	
+	protected Viewer_Bar() {
+		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.setValue(5.6, "Mortality/1000 births", "2018");
 		dataset.setValue(5.7, "Mortality/1000 births", "2017");
@@ -81,10 +84,14 @@ public class Viewer_Bar {
 		 * "Percentage", dataset, PlotOrientation.VERTICAL, true, true, false);
 		 */
 
-		ChartPanel chartPanel = new ChartPanel(barChart);
+		chartPanel = new ChartPanel(barChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+		
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

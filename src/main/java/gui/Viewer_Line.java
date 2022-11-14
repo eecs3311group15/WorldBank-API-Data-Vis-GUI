@@ -19,8 +19,11 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class Viewer_Line {
-	protected Viewer_Line(JPanel west) {
+public class Viewer_Line extends Viewer{
+	protected ChartPanel chartPanel;
+	
+	protected Viewer_Line() {
+		
 		XYSeries series1 = new XYSeries("Mortality/1000 births");
 		series1.add(2018, 5.6);
 		series1.add(2017, 5.7);
@@ -82,10 +85,13 @@ public class Viewer_Line {
 		chart.setTitle(
 				new TextTitle("Mortality vs Expenses & Hospital Beds", new Font("Serif", java.awt.Font.BOLD, 18)));
 
-		ChartPanel chartPanel = new ChartPanel(chart);
+		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

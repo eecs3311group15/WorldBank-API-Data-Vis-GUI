@@ -1,10 +1,11 @@
 package gui;
 
 import java.util.HashMap;
-
 import com.csvreader.CsvReader;
 
-public class Helper {
+class Helper {
+	
+	
 	
 	protected static void loadUserData(String path) throws Exception{
 	    	
@@ -17,18 +18,22 @@ public class Helper {
 	   
 	}
 	
-	protected static HashMap<String, String> loadCountryData(String path) throws Exception{
-    	
-		CsvReader reader;
-		HashMap<String, String> countryHashMap = new HashMap<String, String>();
+	protected static void loadCountryData() throws Exception{
+		String countryPath = "all_countries.csv";
 		
-		reader = new CsvReader(path);
+		CsvReader reader;
+		MainUI.countryHashMap = new HashMap<String, String>();
+		
+		reader = new CsvReader(countryPath);
 		reader.readHeaders();
 		while(reader.readRecord()){
 			String country = reader.get("name");
 			String code = reader.get("country");
-			countryHashMap.put(country, code);
+			MainUI.countryHashMap.put(country, code);
         } 	
-		return countryHashMap;	   
+   
 	}
+	
+	
+	
 }

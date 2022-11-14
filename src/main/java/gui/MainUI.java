@@ -16,6 +16,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -61,28 +62,29 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 
-	private final String countryPath = "all_countries.csv";
-	private static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
+	//private final String countryPath = "all_countries.csv";
+	static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
+	protected static ArrayList<Viewer> viewers = new ArrayList<Viewer>();
+	protected static JPanel west;
 	
-	
-	
-	public static MainUI getInstance() throws IOException {
+	public static MainUI getInstance(){
 		if (instance == null)
 			instance = new MainUI();
 
 		return instance;
 	}
 
-	private MainUI() throws IOException{
+	private MainUI(){
 			
 		// Set window title
 		super("Country Statistics");
 		
 		try {
-			countryHashMap = Helper.loadCountryData(countryPath);
+			Helper.loadCountryData();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		
 		// Set top bar
 		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
@@ -123,7 +125,7 @@ public class MainUI extends JFrame {
 		viewsNames.add("Scatter Chart");
 		viewsNames.add("Report");
 		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
-		JButton addView = new JButton("+");
+		JButton addView = new JButton("+");		
 		JButton removeView = new JButton("-");
 
 		JLabel methodLabel = new JLabel("        Choose analysis method: ");
@@ -148,44 +150,36 @@ public class MainUI extends JFrame {
 		south.add(methodsList);
 		south.add(recalculate);
 				
-		ActionListener actionListener = new RecalculateListener(countriesList, fromList, toList);
+		ActionListener actionListener = new Listener_Recalculate(countriesList, fromList, toList);
 		recalculate.addActionListener(actionListener);
 
 		JPanel east = new JPanel();
 
 		// Set charts region
-		JPanel west = new JPanel();
-		west.setLayout(new GridLayout(2, 0));
-		createCharts(west);
+		west = new JPanel();
+		west.setLayout(new GridLayout(0, 2));
+		JScrollPane scrollPane = new JScrollPane(west);
+		
+		
+		//createCharts(west);
 
 		getContentPane().add(north, BorderLayout.NORTH);
 		getContentPane().add(east, BorderLayout.EAST);
 		getContentPane().add(south, BorderLayout.SOUTH);
-		getContentPane().add(west, BorderLayout.WEST);
-
-	}
-
-	private void createCharts(JPanel west) {
-		ViewerFactory factory = new ViewerFactory();
-		factory.addViewer("Line", west);
-		factory.addViewer("Time", west);
-		factory.addViewer("Bar", west);
-		factory.addViewer("Pie", west);
-		factory.addViewer("Scatter", west);
-		factory.addViewer("Report", west);
-		/*createLine(west);
-		createTimeSeries(west);
-		createBar(west);
-		createPie(west);
-		createScatter(west);
-		createReport(west);*/
-	}
-
+		getContentPane().add(scrollPane, BorderLayout.WEST);
+		
+		ActionListener addViewListener = new Listener_AddView(viewsList);
+		addView.addActionListener(addViewListener);
+		
+		ActionListener removeViewListener = new Listener_RemoveView();
+		removeView.addActionListener(removeViewListener);
+	}	
 
 	public static void startMainUI() throws IOException {
 
 		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
+		frame.setPreferredSize(new Dimension(900, 600));
+		//frame.setSize(900, 800);
 		frame.pack();
 		frame.setVisible(true);
 	}

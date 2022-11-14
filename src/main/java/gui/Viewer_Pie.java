@@ -12,9 +12,12 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.util.TableOrder;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Viewer_Pie {
+public class Viewer_Pie extends Viewer{
 	
-	protected Viewer_Pie(JPanel west) {
+	protected ChartPanel chartPanel;
+	
+	protected Viewer_Pie() {
+		
 		// Different way to create pie chart
 		/*
 		 * var dataset = new DefaultPieDataset(); dataset.setValue("Unemployed", 3.837);
@@ -23,7 +26,7 @@ public class Viewer_Pie {
 		 * JFreeChart pieChart = ChartFactory.createPieChart("Women's Unemployment",
 		 * dataset, true, true, false);
 		 */
-
+		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.addValue(3.946, "Unemployed", "Men");
 		dataset.addValue(96.054, "Employed", "Men");
@@ -33,10 +36,16 @@ public class Viewer_Pie {
 		JFreeChart pieChart = ChartFactory.createMultiplePieChart("Unemployment: Men vs Women", dataset,
 				TableOrder.BY_COLUMN, true, true, false);
 
-		ChartPanel chartPanel = new ChartPanel(pieChart);
+		chartPanel = new ChartPanel(pieChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
+
+		
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+		//MainUI.west.add(chartPanel);
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

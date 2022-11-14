@@ -18,10 +18,11 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 
-public class Viewer_Scatter{
+public class Viewer_Scatter extends Viewer{
 
-	protected Viewer_Scatter(JPanel west) {
-		
+	protected ChartPanel chartPanel;
+	
+	protected Viewer_Scatter() {
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -81,10 +82,13 @@ public class Viewer_Scatter{
 		JFreeChart scatterChart = new JFreeChart("Mortality vs Expenses & Hospital Beds",
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 		
-		ChartPanel chartPanel = new ChartPanel(scatterChart);
+		chartPanel = new ChartPanel(scatterChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 

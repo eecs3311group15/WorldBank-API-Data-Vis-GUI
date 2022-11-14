@@ -17,8 +17,11 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 
-public class Viewer_Time {
-	protected Viewer_Time(JPanel west) {
+public class Viewer_Time extends Viewer{
+	
+	protected ChartPanel chartPanel;
+	
+	protected Viewer_Time() {
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -78,10 +81,13 @@ public class Viewer_Time {
 		JFreeChart chart = new JFreeChart("Mortality vs Expenses & Hospital Beds",
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 
-		ChartPanel chartPanel = new ChartPanel(chart);
+		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

@@ -57,7 +57,7 @@ public class LoginModule extends JFrame{
     	panel.add(passT);
     	
     	button.setBounds(100, 80, 80, 20);
-    	button.addActionListener(new LoginListener());
+    	button.addActionListener(new Listener_Login());
     	panel.add(button);
 	}
 

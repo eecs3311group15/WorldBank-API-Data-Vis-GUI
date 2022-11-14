@@ -8,9 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Viewer_Report {
+public class Viewer_Report extends Viewer{
+	protected JScrollPane outputScrollPane;
 	
-	protected Viewer_Report(JPanel west) {
+	protected Viewer_Report() {
 		JTextArea report = new JTextArea();
 		report.setEditable(false);
 		report.setPreferredSize(new Dimension(400, 300));
@@ -30,7 +31,11 @@ public class Viewer_Report {
 				+ "\tUnemployed: 3.837%\n";
 
 		report.setText(reportMessage);
-		JScrollPane outputScrollPane = new JScrollPane(report);
+		outputScrollPane = new JScrollPane(report);
+		//west.add(outputScrollPane);
+	}
+	
+	protected void addToPanel(JPanel west) {
 		west.add(outputScrollPane);
 	}
 }
