@@ -6,14 +6,14 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class PM25ToForest extends Analysis{
+public class ANN_PCT_CHG_pm25Forest extends Analysis{
 
 	
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	private final String forestcode = "AG.LND.FRST.ZS";
 	
 	
-	public PM25ToForest(String country, int from, int to){
+	public ANN_PCT_CHG_pm25Forest(String country, int from, int to){
 		super(country, from, to);
 	}
 	

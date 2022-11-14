@@ -14,4 +14,10 @@ public abstract class Analysis {
 		this.from = from;
 		this.to = to;
 	}
+	
+	protected void getData() {
+		System.out.println("test");
+	}
+
+	protected abstract void runAnalyses();
 }

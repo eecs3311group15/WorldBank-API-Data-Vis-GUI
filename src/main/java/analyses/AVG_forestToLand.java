@@ -6,10 +6,10 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcherHelper;
 
-public class ForestAreaToLand extends Analysis{
+public class AVG_forestToLand extends Analysis{
 	private final String forestCode = "AG.LND.FRST.ZS";
 	
-	public ForestAreaToLand(String country, int from, int to){
+	public AVG_forestToLand(String country, int from, int to){
 		super(country, from, to);
 	}
 	

@@ -6,12 +6,12 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class EducationExpenditure extends Analysis{
+public class AVG_EducationExpenditureToGDP extends Analysis{
 
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
 //	private final String otherCode = "SH.XPD.CHEX.GD.ZS";
 	
-	public EducationExpenditure(String country, int from, int to){
+	public AVG_EducationExpenditureToGDP(String country, int from, int to){
 		super(country, from, to);
 	}
 	

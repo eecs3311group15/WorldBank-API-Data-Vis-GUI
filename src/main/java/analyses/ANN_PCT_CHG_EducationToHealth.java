@@ -6,14 +6,14 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class EducationToHealth extends Analysis{
+public class ANN_PCT_CHG_EducationToHealth extends Analysis{
 
 
 
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
 	private final String healthCode = "SH.XPD.CHEX.GD.ZS";
 	
-	public EducationToHealth(String country, int from, int to){
+	public ANN_PCT_CHG_EducationToHealth(String country, int from, int to){
 		super(country, from, to);
 	}
 	

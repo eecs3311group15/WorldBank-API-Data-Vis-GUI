@@ -6,13 +6,13 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class HealthExpendToHospitalBeds extends Analysis{
+public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 
 	private final String healthCode= "SH.XPD.CHEX.PC.CD";
 	private final String bedsCode = "SH.MED.BEDS.ZS";
 	
 	
-	public HealthExpendToHospitalBeds(String country, int from, int to){
+	public RATIO_HealthExpendToHospitalBeds(String country, int from, int to){
 		super(country, from, to);
 	}
 	

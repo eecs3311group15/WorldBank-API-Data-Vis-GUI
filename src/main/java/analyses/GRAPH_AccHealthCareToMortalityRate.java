@@ -6,13 +6,13 @@ import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
 
-public class AccHealthCareToMortalityRate extends Analysis{
+public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 
 
 	private final String accessCode= "SH.ACS.MONY.Q1.ZS";
 	private final String mortalityCode = "SP.DYN.IMRT.IN";
 	
-	public AccHealthCareToMortalityRate(String country, int from, int to){
+	public GRAPH_AccHealthCareToMortalityRate(String country, int from, int to){
 		super(country, from, to);
 	}
 	

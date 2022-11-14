@@ -171,7 +171,9 @@ public class MainUI extends JFrame {
 		createPie(west);
 		createScatter(west);
 		createReport(west);
-
+		createReport(west);
+		createReport(west);
+		createReport(west);
 	}
 
 	private void createReport(JPanel west) {
