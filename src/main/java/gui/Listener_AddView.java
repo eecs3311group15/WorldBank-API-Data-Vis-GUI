@@ -2,7 +2,14 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+
 import javax.swing.JComboBox;
+
+import analyses.Analysis;
+import analyses.AnalysisFactory;
+import gui_viewers.Viewer;
+import gui_viewers.ViewerFactory;
 
 class Listener_AddView implements ActionListener{
 	
@@ -26,26 +33,44 @@ class Listener_AddView implements ActionListener{
 		MainUI.west.repaint();
 		
 		String _country = String.valueOf(country.getSelectedItem());
-		String _countryCode = MainUI.countryHashMap.get(_country);
-		String analysisType = String.valueOf(methodsList.getSelectedItem());
-		String selectedFrom = String.valueOf (from.getSelectedItem());   
-		String selectedTo = String.valueOf (to.getSelectedItem());  
-		int _from = Integer.parseInt(selectedFrom);
-		int _to = Integer.parseInt(selectedTo);
-		
-		System.out.println("add buttom");
-		String viewerType = String.valueOf(viewsList.getSelectedItem());
-		
-		/*Need to implement Viewer/Analysis compatibility check*/
-		
-		MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));
-		
-		for (Viewer i : MainUI.viewers) {
-			i.addToPanel(MainUI.west);
+		if(!AnalysesFacade.exclusionListCheck(_country)) {
+			//Need to implement pop up window for this
+			System.out.println(_country + "'s data is unavailable, please select another country");
+		}else {
+			///////////////
+			String _countryCode = MainUI.countryHashMap.get(_country);
+			String analysisType = String.valueOf(methodsList.getSelectedItem());
+			String selectedFrom = String.valueOf (from.getSelectedItem());   
+			String selectedTo = String.valueOf (to.getSelectedItem());  
+			int _from = Integer.parseInt(selectedFrom);
+			int _to = Integer.parseInt(selectedTo);		
+			String viewerType = String.valueOf(viewsList.getSelectedItem());
+			///////////////
+			/*Need to implement Viewer/Analysis compatibility check*/
+			
+			Analysis temp = AnalysisFactory.getAnalysis(analysisType, _country, _from, _to);
+			HashMap<String, Boolean> compatibility = temp.getCompatibility();
+			if(compatibility.get(viewerType)) {
+				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));
+				
+				for (Viewer i : MainUI.viewers) {
+					i.addToPanel(MainUI.west);
+				}
+				
+				MainUI.getInstance().validate();
+				MainUI.getInstance().repaint();
+			}else {
+				System.out.println(analysisType + " is not compatible with " + viewerType);
+			}
+			
+			
+			
+			
 		}
 		
-		MainUI.getInstance().validate();
-		MainUI.getInstance().repaint();
+		
+		
+		
 
 	}
 

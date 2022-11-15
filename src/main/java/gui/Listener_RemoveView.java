@@ -3,6 +3,8 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import gui_viewers.Viewer;
+
 public class Listener_RemoveView implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {

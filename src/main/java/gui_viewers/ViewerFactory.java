@@ -1,4 +1,4 @@
-package gui;
+package gui_viewers;
 
 public class ViewerFactory {
 	
@@ -18,7 +18,7 @@ public class ViewerFactory {
 		}else if(viewerType.equals("Scatter Chart")) {
 			return new Viewer_Scatter(analysisType, country, from, to);
 			
-		}else if(viewerType.equals("Time")) {
+		}else if(viewerType.equals("Time Chart")) {
 			return new Viewer_Time(analysisType, country, from, to);			
 		}
 		return null;

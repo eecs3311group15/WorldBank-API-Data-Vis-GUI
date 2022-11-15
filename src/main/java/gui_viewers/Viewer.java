@@ -1,8 +1,8 @@
-package gui;
+package gui_viewers;
 
 import javax.swing.JPanel;
 
-class Viewer {
+public class Viewer {
 	
 	private String viewerTitle;
 	private String country;
@@ -16,5 +16,5 @@ class Viewer {
 		this.to = to;
 	}
 	
-	protected void addToPanel(JPanel west) {};
+	public void addToPanel(JPanel west) {};
 }

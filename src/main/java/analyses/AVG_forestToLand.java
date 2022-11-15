@@ -5,44 +5,46 @@ import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
 
+import datafetcher.DataFetcher;
 import datafetcher.DataFetcherHelper;
 
 public class AVG_forestToLand extends Analysis{
+	
 	private final String forestCode = "AG.LND.FRST.ZS";
+	
+	private JsonArray forest;
 	
 	public AVG_forestToLand(String country, int from, int to){
 		super(country, from, to);
+		
+		forest = DataFetcher.getJsonObject(forestCode, country, from, to);
+		analysis_description.add(DataFetcherHelper.getDescription(forest));
+		analysis_description.add("All other purposes");
+		
+		compatibility.put("Pie Chart", true);
+		compatibility.put("Line Chart", false);
+		compatibility.put("Bar Chart", false);
+		compatibility.put("Scatter Chart", false);
+		compatibility.put("Time Chart", false);
+		compatibility.put("Report", true);
 	}
 	
 	public void runAnalyses() {
-		
-		JsonArray forest = dataFetcher.getJsonObject(forestCode, country, from, to);
-		
+				
 		int sizeOfResults = forest.get(1).getAsJsonArray().size();
+		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {
-			double forestValue = DataFetcherHelper.getValue(forest, i);
-
-			int year = DataFetcherHelper.getYear(forest, i);
-			
-			System.out.println("Forest area (% of land area) in " + year + " is " + forestValue);
-			System.out.println("Other land area in " + year + " is " +( 100-forestValue));
-			
-			double ratio = forestValue;
-			DecimalFormat f = new DecimalFormat("##0.00000");
-			System.out.println("Avergae Forest area (as % of land area) in " + year + " is " + f.format(ratio) + "%\n");
-			
+			double forestValue = DataFetcherHelper.getValue(forest, i);	
+			sum = sum + forestValue;
 		}
+		double avg_result = sum / (double)sizeOfResults;
+		double rest_result = 100.0 - avg_result;
+		ArrayList<Double> thisYearData = new ArrayList<Double>();
+		thisYearData.add(avg_result);
+		thisYearData.add(rest_result);
+		
+		int year = DataFetcherHelper.getYear(forest, 0);
+		resultMap.put(""+year, thisYearData);
 	}
 
-	@Override
-	public ArrayList<String> getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ArrayList<ArrayList<Double>> getResult() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

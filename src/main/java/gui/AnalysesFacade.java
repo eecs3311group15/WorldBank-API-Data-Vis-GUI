@@ -10,7 +10,7 @@ public class AnalysesFacade {
 		return (from > to) ? false : true;
 	}
 	
-	public boolean exclusionListCheck(String country) {
+	public static boolean exclusionListCheck(String country) {
 		String path = "excluded_countries.csv";
 		ArrayList<String> excludedCountries = new ArrayList<String>();
 		

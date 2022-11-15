@@ -1,10 +1,11 @@
-package gui;
+package gui_viewers;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -32,21 +33,23 @@ public class Viewer_Line extends Viewer{
 		Analysis analysis = AnalysisFactory.getAnalysis(analysisType, country, from, to);
 		analysis.runAnalyses();
 		
-		ArrayList<String> descriptions = analysis.getDescription();
-		ArrayList<ArrayList<Double>> data = analysis.getResult();
+		ArrayList<String> descriptions = analysis.getDescription();		
+		HashMap<String, ArrayList<Double>> resultMap = analysis.returnData();
 		
 		ArrayList<XYSeries> lines = new ArrayList<XYSeries>();
 		int size = descriptions.size();		
-		
 		for(int i = 0; i < size; i++) {
-			XYSeries temp = new XYSeries(descriptions.get(i));
-			int year = to - from;
-			for(int j = 0; j < data.get(i).size(); j++) {
-				temp.add(year, data.get(i).get(j));
-				year++;
-			}			
-			lines.add(temp);		
+			XYSeries temp = new XYSeries(descriptions.get(i));									
+			lines.add(temp);
 		}
+		
+		for(String k : resultMap.keySet()) {			
+			ArrayList<Double> thisYearData = resultMap.get(k);
+			for(int i = 0; i < thisYearData.size(); i++) {
+				lines.get(i).add(Double. parseDouble(k), thisYearData.get(i));
+			}	
+		}
+
 	
 		XYSeriesCollection dataset = new XYSeriesCollection();
 		for(int i = 0; i < size; i++) {
@@ -81,8 +84,13 @@ public class Viewer_Line extends Viewer{
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
 	}
+	public void setTitle() {
+		
+	}
 	
-	protected void addToPanel(JPanel west) {
+	
+	
+	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

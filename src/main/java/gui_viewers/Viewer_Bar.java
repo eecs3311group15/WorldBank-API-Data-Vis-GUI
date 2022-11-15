@@ -1,4 +1,4 @@
-package gui;
+package gui_viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -92,7 +92,7 @@ public class Viewer_Bar extends Viewer{
 		
 	}
 	
-	protected void addToPanel(JPanel west) {
+	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

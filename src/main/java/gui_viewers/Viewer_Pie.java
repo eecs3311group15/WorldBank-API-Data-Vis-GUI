@@ -1,4 +1,4 @@
-package gui;
+package gui_viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -45,7 +45,7 @@ public class Viewer_Pie extends Viewer{
 		//MainUI.west.add(chartPanel);
 	}
 	
-	protected void addToPanel(JPanel west) {
+	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
 }

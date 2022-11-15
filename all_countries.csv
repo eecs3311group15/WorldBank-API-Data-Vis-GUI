@@ -1,4 +1,6 @@
 country,latitude,longitude,name
+CA,56.130366,-106.346771,Canada
+US,37.09024,-95.712891,"United States"
 AD,42.546245,1.601554,Andorra
 AE,23.424076,53.847818,"United Arab Emirates"
 AF,33.93911,67.709953,Afghanistan
@@ -34,7 +36,6 @@ BV,-54.423199,3.413194,"Bouvet Island"
 BW,-22.328474,24.684866,Botswana
 BY,53.709807,27.953389,Belarus
 BZ,17.189877,-88.49765,Belize
-CA,56.130366,-106.346771,Canada
 CC,-12.164165,96.870956,"Cocos [Keeling] Islands"
 CD,-4.038333,21.758664,"Congo [DRC]"
 CF,6.611111,20.939444,"Central African Republic"
@@ -226,7 +227,6 @@ TZ,-6.369028,34.888822,Tanzania
 UA,48.379433,31.16558,Ukraine
 UG,1.373333,32.290275,Uganda
 UM,,,"U.S. Minor Outlying Islands"
-US,37.09024,-95.712891,"United States"
 UY,-32.522779,-55.765835,Uruguay
 UZ,41.377491,64.585262,Uzbekistan
 VA,41.902916,12.453389,"Vatican City"

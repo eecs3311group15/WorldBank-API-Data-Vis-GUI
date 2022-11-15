@@ -1,4 +1,4 @@
-package gui;
+package gui_viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,16 +12,17 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYSplineRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 
-public class Viewer_Time extends Viewer{
-	
+public class Viewer_Scatter extends Viewer{
+
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Time(String viewerTitle, String country, int from, int to) {
+	protected Viewer_Scatter(String viewerTitle, String country, int from, int to) {
 		super(viewerTitle, country, from, to);
 		
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
@@ -64,32 +65,33 @@ public class Viewer_Time extends Viewer{
 		dataset.addSeries(series3);
 
 		XYPlot plot = new XYPlot();
-		XYSplineRenderer splinerenderer1 = new XYSplineRenderer();
-		XYSplineRenderer splinerenderer2 = new XYSplineRenderer();
+		XYItemRenderer itemrenderer1 = new XYLineAndShapeRenderer(false, true);
+		XYItemRenderer itemrenderer2 = new XYLineAndShapeRenderer(false, true);
 
 		plot.setDataset(0, dataset);
-		plot.setRenderer(0, splinerenderer1);
+		plot.setRenderer(0, itemrenderer1);
 		DateAxis domainAxis = new DateAxis("Year");
 		plot.setDomainAxis(domainAxis);
 		plot.setRangeAxis(new NumberAxis(""));
 
 		plot.setDataset(1, dataset2);
-		plot.setRenderer(1, splinerenderer2);
+		plot.setRenderer(1, itemrenderer2);
 		plot.setRangeAxis(1, new NumberAxis("US$"));
 
 		plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
 		plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
 
-		JFreeChart chart = new JFreeChart(viewerTitle,
+		JFreeChart scatterChart = new JFreeChart(viewerTitle,
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-
-		chartPanel = new ChartPanel(chart);
+		
+		chartPanel = new ChartPanel(scatterChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
 	}
 	
-	protected void addToPanel(JPanel west) {
+	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
+
 }
