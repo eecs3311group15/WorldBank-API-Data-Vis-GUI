@@ -43,5 +43,17 @@ public class RATIO_co2GDP extends Analysis{
 			year++;
 		}		
 	}
+
+	@Override
+	public ArrayList<String> getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<ArrayList<Double>> getResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

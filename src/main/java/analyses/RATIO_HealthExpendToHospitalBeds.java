@@ -1,6 +1,7 @@
 package analyses;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
 
@@ -35,5 +36,17 @@ public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 			System.out.println("Ratio of Government Health Expenditure per hospital beds in " + year + " is " + f.format(ratio) + "%\n");
 			
 		}
+	}
+
+	@Override
+	public ArrayList<String> getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<ArrayList<Double>> getResult() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -26,7 +26,8 @@ class Listener_AddView implements ActionListener{
 		MainUI.west.repaint();
 		
 		String _country = String.valueOf(country.getSelectedItem());
-		String _method = String.valueOf(methodsList.getSelectedItem());
+		String _countryCode = MainUI.countryHashMap.get(_country);
+		String analysisType = String.valueOf(methodsList.getSelectedItem());
 		String selectedFrom = String.valueOf (from.getSelectedItem());   
 		String selectedTo = String.valueOf (to.getSelectedItem());  
 		int _from = Integer.parseInt(selectedFrom);
@@ -34,7 +35,10 @@ class Listener_AddView implements ActionListener{
 		
 		System.out.println("add buttom");
 		String viewerType = String.valueOf(viewsList.getSelectedItem());
-		MainUI.viewers.add(ViewerFactory.createViewer(viewerType, _method, _country, _from, _to));
+		
+		/*Need to implement Viewer/Analysis compatibility check*/
+		
+		MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));
 		
 		for (Viewer i : MainUI.viewers) {
 			i.addToPanel(MainUI.west);

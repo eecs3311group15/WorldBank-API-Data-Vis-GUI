@@ -13,9 +13,12 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	private final String energycode = "EG.USE.PCAP.KG.OE";
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	
-	ArrayList<Double> co2_result = new ArrayList<Double>();
-	ArrayList<Double> energy_result = new ArrayList<Double>();
-	ArrayList<Double> pm25_result = new ArrayList<Double>();
+	private ArrayList<Double> co2_result = new ArrayList<Double>();
+	private ArrayList<Double> energy_result = new ArrayList<Double>();
+	private ArrayList<Double> pm25_result = new ArrayList<Double>();
+	
+	private ArrayList<String> analysis_description = new ArrayList<String>();
+	private ArrayList<ArrayList<Double>> analysis_result = new ArrayList<ArrayList<Double>>();
 	
 	public ANN_PCT_CHG_co2EnergyPM25(String country, int from, int to) {
 		super(country, from, to);
@@ -24,11 +27,12 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	public void runAnalyses() {
 		int _from = from -1;
 		
-		JsonArray co2 = dataFetcher.getJsonObject(co2code, country, _from, to);
-		JsonArray energy = dataFetcher.getJsonObject(energycode, country, _from, to);
-		JsonArray pm25 = dataFetcher.getJsonObject(pm25code, country, _from, to);
+		JsonArray co2 = DataFetcher.getJsonObject(co2code, country, _from, to);
+		JsonArray energy = DataFetcher.getJsonObject(energycode, country, _from, to);
+		JsonArray pm25 = DataFetcher.getJsonObject(pm25code, country, _from, to);
 		
-		int sizeOfResults = co2.get(1).getAsJsonArray().size();
+		//int sizeOfResults = co2.get(1).getAsJsonArray().size();
+		int sizeOfResults = to - from;
 		for (int i = 1; i < sizeOfResults-1; i++) {
 			int year = DataFetcherHelper.getYear(co2, i);
 			
@@ -52,8 +56,19 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 			double pm25_pct = (pm25_diff/pm25Value) * 100.0;
 			pm25_result.add(pm25_pct);		
 		}
+		analysis_result.add(co2_result);
+		analysis_result.add(energy_result);
+		analysis_result.add(pm25_result);
+
+		analysis_description.add(DataFetcherHelper.getDescription(co2));
+		analysis_description.add(DataFetcherHelper.getDescription(energy));
+		analysis_description.add(DataFetcherHelper.getDescription(pm25));
+
 		printResult();
 	}
+	
+	public ArrayList<String> getDescription() {return analysis_description;}	
+	public ArrayList<ArrayList<Double>> getResult() {return analysis_result;}
 	
 	public void printResult() {
 		int year = from;

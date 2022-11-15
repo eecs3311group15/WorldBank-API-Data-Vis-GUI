@@ -1,6 +1,7 @@
 package analyses;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
 
@@ -36,5 +37,17 @@ public class ANN_PCT_CHG_pm25Forest extends Analysis{
 			System.out.println("Annual Percentage change of PM2.5 air pollution to Forest area in " + year + " is " + f.format(ratio) + "%\n");
 			
 		}
+	}
+
+	@Override
+	public ArrayList<String> getDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<ArrayList<Double>> getResult() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

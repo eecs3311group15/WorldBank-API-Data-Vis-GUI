@@ -27,4 +27,15 @@ public class DataFetcherHelper {
 		}
 		return result;
 	}
+	
+public static String getDescription(JsonArray jsonObj) {
+		
+		String result;
+		try {
+			result = jsonObj.get(1).getAsJsonArray().get(0).getAsJsonObject().get("indicator").getAsJsonObject().get("value").getAsString();
+		}catch(Exception e) {
+			result = "null";
+		}
+		return result;
+	}
 }

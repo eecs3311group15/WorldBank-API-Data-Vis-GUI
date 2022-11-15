@@ -98,12 +98,16 @@ public class MainUI extends JFrame {
 
 		JLabel from = new JLabel("From");
 		JLabel to = new JLabel("To");
-		Vector<String> years = new Vector<String>();
+		Vector<String> yearsDown = new Vector<String>();
 		for (int i = 2021; i >= 2010; i--) {
-			years.add("" + i);
+			yearsDown.add("" + i);
 		}
-		JComboBox<String> fromList = new JComboBox<String>(years);
-		JComboBox<String> toList = new JComboBox<String>(years);
+		Vector<String> yearsUp = new Vector<String>();
+		for (int i = 2010; i <= 2021; i++) {
+			yearsUp.add("" + i);
+		}
+		JComboBox<String> fromList = new JComboBox<String>(yearsUp);
+		JComboBox<String> toList = new JComboBox<String>(yearsDown);
 
 		JPanel north = new JPanel();
 		north.add(chooseCountryLabel);
@@ -132,11 +136,13 @@ public class MainUI extends JFrame {
 
 		Vector<String> methodsNames = new Vector<String>();
 		methodsNames.add("Annual % change of CO2 - Energy use - PM2.5");
-		methodsNames.add("Annual % change of PM2.5 - Forest area");
-		methodsNames.add("Ratio of CO2 - GDP");
-		methodsNames.add("Average of education expenditure");
-		methodsNames.add("Accessing health care problem - Mortality rate, infant");
 		methodsNames.add("Annual % change of education expenditure - health expenditure");
+		methodsNames.add("Annual % change of PM2.5 - Forest area");
+		methodsNames.add("Average of education expenditure");
+		methodsNames.add("Average of Forest - Land");
+		methodsNames.add("Accessing health care problem - Mortality rate, infant");
+		methodsNames.add("Ratio of CO2 - GDP");
+		methodsNames.add("Ratio of HealthExpend - hospitalBeds");				
 
 		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
 
@@ -178,7 +184,7 @@ public class MainUI extends JFrame {
 	public static void startMainUI() throws IOException {
 
 		JFrame frame = MainUI.getInstance();
-		frame.setPreferredSize(new Dimension(900, 600));
+		frame.setPreferredSize(new Dimension(1000, 600));
 		//frame.setSize(900, 800);
 		frame.pack();
 		frame.setVisible(true);

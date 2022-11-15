@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -19,51 +20,40 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import analyses.Analysis;
+import analyses.AnalysisFactory;
+
 public class Viewer_Line extends Viewer{
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Line(String viewerTitle, String country, int from, int to) {
-		super(viewerTitle, country, from, to);
+	protected Viewer_Line(String analysisType, String country, int from, int to) {
+		super(analysisType, country, from, to);
 		
-		XYSeries series1 = new XYSeries("Mortality/1000 births");
-		series1.add(2018, 5.6);
-		series1.add(2017, 5.7);
-		series1.add(2016, 5.8);
-		series1.add(2015, 5.8);
-		series1.add(2014, 5.9);
-		series1.add(2013, 6.0);
-		series1.add(2012, 6.1);
-		series1.add(2011, 6.2);
-		series1.add(2010, 6.4);
-
-		XYSeries series2 = new XYSeries("Health Expenditure per Capita");
-		series2.add(2018, 10624);
-		series2.add(2017, 10209);
-		series2.add(2016, 9877);
-		series2.add(2015, 9491);
-		series2.add(2014, 9023);
-		series2.add(2013, 8599);
-		series2.add(2012, 8399);
-		series2.add(2011, 8130);
-		series2.add(2010, 7930);
-
-		XYSeries series3 = new XYSeries("Hospital Beds/1000 people");
-		series3.add(2018, 2.92);
-		series3.add(2017, 2.87);
-		series3.add(2016, 2.77);
-		series3.add(2015, 2.8);
-		series3.add(2014, 2.83);
-		series3.add(2013, 2.89);
-		series3.add(2012, 2.93);
-		series3.add(2011, 2.97);
-		series3.add(2010, 3.05);
-
+		Analysis analysis = AnalysisFactory.getAnalysis(analysisType, country, from, to);
+		analysis.runAnalyses();
+		
+		ArrayList<String> descriptions = analysis.getDescription();
+		ArrayList<ArrayList<Double>> data = analysis.getResult();
+		
+		ArrayList<XYSeries> lines = new ArrayList<XYSeries>();
+		int size = descriptions.size();		
+		
+		for(int i = 0; i < size; i++) {
+			XYSeries temp = new XYSeries(descriptions.get(i));
+			int year = to - from;
+			for(int j = 0; j < data.get(i).size(); j++) {
+				temp.add(year, data.get(i).get(j));
+				year++;
+			}			
+			lines.add(temp);		
+		}
+	
 		XYSeriesCollection dataset = new XYSeriesCollection();
-		dataset.addSeries(series1);
-		dataset.addSeries(series2);
-		dataset.addSeries(series3);
+		for(int i = 0; i < size; i++) {
+			dataset.addSeries(lines.get(i));
+		}
 
-		JFreeChart chart = ChartFactory.createXYLineChart("Mortality vs Expenses & Hospital Beds", "Year", "", dataset,
+		JFreeChart chart = ChartFactory.createXYLineChart("", "Year", "", dataset,
 				PlotOrientation.VERTICAL, true, true, false);
 
 		XYPlot plot = chart.getXYPlot();
@@ -84,7 +74,7 @@ public class Viewer_Line extends Viewer{
 		chart.getLegend().setFrame(BlockBorder.NONE);
 
 		chart.setTitle(
-				new TextTitle(viewerTitle, new Font("Serif", java.awt.Font.BOLD, 18)));
+				new TextTitle(analysisType, new Font("Serif", java.awt.Font.BOLD, 18)));
 
 		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));

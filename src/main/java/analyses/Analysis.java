@@ -1,5 +1,7 @@
 package analyses;
 
+import java.util.ArrayList;
+
 import datafetcher.*;
 
 public abstract class Analysis {
@@ -15,9 +17,7 @@ public abstract class Analysis {
 		this.to = to;
 	}
 	
-	protected void getData() {
-		System.out.println("test");
-	}
-
-	protected abstract void runAnalyses();
+	public abstract void runAnalyses();
+	public abstract ArrayList<String> getDescription();
+	public abstract ArrayList<ArrayList<Double>> getResult();
 }
