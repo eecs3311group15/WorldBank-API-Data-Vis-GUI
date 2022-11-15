@@ -24,7 +24,18 @@ public class Viewer_Scatter extends Viewer{
 	
 	protected Viewer_Scatter(String viewerTitle, String country, int from, int to) {
 		super(viewerTitle, country, from, to);
+
+		XYPlot plot = new XYPlot();
+
+		JFreeChart scatterChart = new JFreeChart(viewerTitle,
+				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 		
+		chartPanel = new ChartPanel(scatterChart);
+		chartPanel.setPreferredSize(new Dimension(400, 300));
+		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		chartPanel.setBackground(Color.white);
+	}
+	public void setViewWithData() {
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -89,7 +100,6 @@ public class Viewer_Scatter extends Viewer{
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
 	}
-	
 	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}

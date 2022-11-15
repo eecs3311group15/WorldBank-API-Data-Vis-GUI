@@ -19,8 +19,20 @@ public class Viewer_Bar extends Viewer{
 	protected ChartPanel chartPanel;
 	
 	protected Viewer_Bar(String viewerTitle, String country, int from, int to) {
-		super(viewerTitle, country, from, to);
+		super(viewerTitle, country, from, to);		
+
+		CategoryPlot plot = new CategoryPlot();
+
+		JFreeChart barChart = new JFreeChart(viewerTitle,
+				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
+
+		chartPanel = new ChartPanel(barChart);
+		chartPanel.setPreferredSize(new Dimension(400, 300));
+		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		chartPanel.setBackground(Color.white);
 		
+	}
+	public void setViewWithData() {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.setValue(5.6, "Mortality/1000 births", "2018");
 		dataset.setValue(5.7, "Mortality/1000 births", "2017");
@@ -74,23 +86,12 @@ public class Viewer_Bar extends Viewer{
 		JFreeChart barChart = new JFreeChart(viewerTitle,
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
 
-		// Different way to create bar chart
-		/*
-		 * dataset = new DefaultCategoryDataset();
-		 * 
-		 * dataset.addValue(3.946, "Unemployed", "Men"); dataset.addValue(96.054,
-		 * "Employed", "Men"); dataset.addValue(3.837, "Unemployed", "Women");
-		 * dataset.addValue(96.163, "Employed", "Women"); barChart =
-		 * ChartFactory.createBarChart("Unemployment: Men vs Women", "Gender",
-		 * "Percentage", dataset, PlotOrientation.VERTICAL, true, true, false);
-		 */
-
 		chartPanel = new ChartPanel(barChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		
 	}
+	
 	
 	public void addToPanel(JPanel west) {
 		west.add(chartPanel);

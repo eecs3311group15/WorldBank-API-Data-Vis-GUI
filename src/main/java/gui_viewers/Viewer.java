@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 public class Viewer {
 	
-	private String viewerTitle;
+	protected String viewerTitle;
 	private String country;
 	private int from;
 	private int to;

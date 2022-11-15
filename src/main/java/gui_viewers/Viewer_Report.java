@@ -19,6 +19,21 @@ public class Viewer_Report extends Viewer{
 		report.setPreferredSize(new Dimension(400, 300));
 		report.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		report.setBackground(Color.white);
+		String reportMessage;
+
+		reportMessage = viewerTitle + "==============================\n" + "Please press Recalculate\n";
+
+		report.setText(reportMessage);
+		outputScrollPane = new JScrollPane(report);
+
+	}
+	
+	public void setViewWithData() {
+		JTextArea report = new JTextArea();
+		report.setEditable(false);
+		report.setPreferredSize(new Dimension(400, 300));
+		report.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		report.setBackground(Color.white);
 		String reportMessage, reportMessage2;
 
 		reportMessage = viewerTitle + "==============================\n" + "Year 2018:\n"
@@ -34,7 +49,6 @@ public class Viewer_Report extends Viewer{
 
 		report.setText(reportMessage);
 		outputScrollPane = new JScrollPane(report);
-		//west.add(outputScrollPane);
 	}
 	
 	public void addToPanel(JPanel west) {
