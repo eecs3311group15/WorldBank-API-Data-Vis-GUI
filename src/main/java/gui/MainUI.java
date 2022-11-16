@@ -33,20 +33,23 @@ public class MainUI extends JFrame {
 
 	private static MainUI instance;
 
-	//private final String countryPath = "all_countries.csv";
 	static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
 	protected static ArrayList<Viewer> viewers = new ArrayList<Viewer>();
 	protected static JPanel west;
 	
+	protected static JComboBox<String> viewsList;
+	protected static JComboBox<String> fromList;
+	protected static JComboBox<String> toList;
+	protected static JComboBox<String> countriesList;
+	protected static JComboBox<String> methodsList;
+	
 	public static MainUI getInstance(){
 		if (instance == null)
 			instance = new MainUI();
-
 		return instance;
 	}
 
-	private MainUI(){
-			
+	private MainUI(){		
 		// Set window title
 		super("Country Statistics");
 		
@@ -55,8 +58,7 @@ public class MainUI extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
+	
 		// Set top bar
 		JLabel chooseCountryLabel = new JLabel("Choose a country: ");
 		Vector<String> countriesNames = new Vector<String>();
@@ -64,8 +66,7 @@ public class MainUI extends JFrame {
 			countriesNames.add(i);
 		}       	
 		countriesNames.sort(null);
-		
-		JComboBox<String> countriesList = new JComboBox<String>(countriesNames);
+		countriesList = new JComboBox<String>(countriesNames);
 
 		JLabel from = new JLabel("From");
 		JLabel to = new JLabel("To");
@@ -77,8 +78,8 @@ public class MainUI extends JFrame {
 		for (int i = 2010; i <= 2021; i++) {
 			yearsUp.add("" + i);
 		}
-		JComboBox<String> fromList = new JComboBox<String>(yearsUp);
-		JComboBox<String> toList = new JComboBox<String>(yearsDown);
+		fromList = new JComboBox<String>(yearsUp);
+		toList = new JComboBox<String>(yearsDown);
 
 		JPanel north = new JPanel();
 		north.add(chooseCountryLabel);
@@ -100,7 +101,7 @@ public class MainUI extends JFrame {
 		viewsNames.add("Scatter Chart");
 		viewsNames.add("Time Chart");
 		viewsNames.add("Report");
-		JComboBox<String> viewsList = new JComboBox<String>(viewsNames);
+		viewsList = new JComboBox<String>(viewsNames);
 		JButton addView = new JButton("+");		
 		JButton removeView = new JButton("-");
 
@@ -116,7 +117,7 @@ public class MainUI extends JFrame {
 		methodsNames.add("Ratio of CO2 - GDP");
 		methodsNames.add("Ratio of HealthExpend - hospitalBeds");				
 
-		JComboBox<String> methodsList = new JComboBox<String>(methodsNames);
+		methodsList = new JComboBox<String>(methodsNames);
 
 		JPanel south = new JPanel();
 		south.add(viewsLabel);
@@ -137,16 +138,13 @@ public class MainUI extends JFrame {
 		west = new JPanel();
 		west.setLayout(new GridLayout(0, 2));
 		JScrollPane scrollPane = new JScrollPane(west);
-		
-		
-		//createCharts(west);
 
 		getContentPane().add(north, BorderLayout.NORTH);
 		getContentPane().add(east, BorderLayout.EAST);
 		getContentPane().add(south, BorderLayout.SOUTH);
 		getContentPane().add(scrollPane, BorderLayout.WEST);
 		
-		ActionListener addViewListener = new Listener_AddView(viewsList, methodsList, countriesList, fromList, toList);
+		ActionListener addViewListener = new Listener_AddView();
 		addView.addActionListener(addViewListener);
 		
 		ActionListener removeViewListener = new Listener_RemoveView();

@@ -1,8 +1,11 @@
 package gui_viewers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.JPanel;
 
-public class Viewer {
+public class Viewer implements DataObserver{
 	
 	protected String viewerTitle;
 	private String country;
@@ -16,5 +19,10 @@ public class Viewer {
 		this.to = to;
 	}
 	
-	public void addToPanel(JPanel west) {};
+	public void addToPanel(JPanel west) {}
+
+	public void update(HashMap<String, ArrayList<Double>> resultMap) {
+		// TODO Auto-generated method stub
+		
+	};
 }

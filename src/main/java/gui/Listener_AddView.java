@@ -13,38 +13,32 @@ import gui_viewers.ViewerFactory;
 
 class Listener_AddView implements ActionListener{
 	
-	private JComboBox<String> viewsList;
-	private JComboBox<String> methodsList;
-	private JComboBox<String> country;
-	private JComboBox<String> from;
-	private JComboBox<String> to;
-	
-	public Listener_AddView(JComboBox<String> viewsList, JComboBox<String> methodsList, JComboBox<String> country, JComboBox<String> from, JComboBox<String> to) {
-		this.viewsList = viewsList;
-		this.methodsList = methodsList;
-		this.country = country;
-		this.from = from;
-		this.to = to;
-	}
-	
 	public void actionPerformed(ActionEvent e) {
 		MainUI.west.removeAll();
 		MainUI.west.validate();
 		MainUI.west.repaint();
 		
-		String _country = String.valueOf(country.getSelectedItem());
+		MainUI.countriesList.setEnabled(false);	
+		MainUI.fromList.setEnabled(false);
+		MainUI.toList.setEnabled(false);
+		MainUI.methodsList.setEnabled(false);
+		
+		String _country = String.valueOf(MainUI.countriesList.getSelectedItem());
 		if(!AnalysesFacade.exclusionListCheck(_country)) {
 			//Need to implement pop up window for this
 			System.out.println(_country + "'s data is unavailable, please select another country");
+			MainUI.countriesList.setEnabled(true);	
+			MainUI.fromList.setEnabled(true);
+			MainUI.toList.setEnabled(true);
+			MainUI.methodsList.setEnabled(true);
 		}else {
 			///////////////Parameters from GUI/////////////
 			String _countryCode = MainUI.countryHashMap.get(_country);
-			String analysisType = String.valueOf(methodsList.getSelectedItem());
-			String selectedFrom = String.valueOf (from.getSelectedItem());   
-			String selectedTo = String.valueOf (to.getSelectedItem());  
-			int _from = Integer.parseInt(selectedFrom);
-			int _to = Integer.parseInt(selectedTo);		
-			String viewerType = String.valueOf(viewsList.getSelectedItem());
+			String analysisType = String.valueOf(MainUI.methodsList.getSelectedItem()); 
+
+			int _from = Integer.parseInt(String.valueOf (MainUI.fromList.getSelectedItem()));
+			int _to = Integer.parseInt(String.valueOf (MainUI.toList.getSelectedItem()));		
+			String viewerType = String.valueOf(MainUI.viewsList.getSelectedItem());
 			/////////////////////////////////////////////////
 			
 			/*compatibility check*/			

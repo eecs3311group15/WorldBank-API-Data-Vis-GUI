@@ -70,7 +70,7 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 			resultMap.put(""+year, thisYearData);
 		}
 		
-		printResult();
+		//printResult();
 	}
 	
 	

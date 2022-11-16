@@ -24,54 +24,35 @@ import org.jfree.data.xy.XYSeriesCollection;
 import analyses.Analysis;
 import analyses.AnalysisFactory;
 
-public class Viewer_Line extends Viewer{
+public class Viewer_Line extends Viewer implements DataObserver{
 	protected ChartPanel chartPanel;
-	protected Analysis analysis;
-	protected ArrayList<String> descriptions;
+	protected JFreeChart chart;
+	
 	
 	protected Viewer_Line(String analysisType, String country, int from, int to) {
 		super(analysisType, country, from, to);
 		
-		analysis = AnalysisFactory.getAnalysis(analysisType, country, from, to);			
-		descriptions = analysis.getDescription();		
-
-
-		JFreeChart chart = ChartFactory.createXYLineChart("", "Year", "", null,
-				PlotOrientation.VERTICAL, true, true, false);
-
-		XYPlot plot = chart.getXYPlot();
-
-		XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
-		renderer.setSeriesPaint(0, Color.RED);
-		renderer.setSeriesStroke(0, new BasicStroke(2.0f));
-
-		plot.setRenderer(renderer);
-		plot.setBackgroundPaint(Color.white);
-
-		plot.setRangeGridlinesVisible(true);
-		plot.setRangeGridlinePaint(Color.BLACK);
-
-		plot.setDomainGridlinesVisible(true);
-		plot.setDomainGridlinePaint(Color.BLACK);
-
+		chart = ChartFactory.createXYLineChart("", "Year", "", null, PlotOrientation.VERTICAL, true, true, false);
 		chart.getLegend().setFrame(BlockBorder.NONE);
-
-		chart.setTitle(
-				new TextTitle(analysisType, new Font("Serif", java.awt.Font.BOLD, 18)));
+		chart.setTitle(new TextTitle(analysisType, new Font("Serif", java.awt.Font.BOLD, 18)));
 
 		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
 	}
-	public void setViewWithData() {
-		analysis.runAnalyses();	
-		HashMap<String, ArrayList<Double>> resultMap = analysis.returnData();
-		
+	
+	public void addToPanel(JPanel west) {
+		west.add(chartPanel);
+	}
+	public void update(HashMap<String, ArrayList<Double>> resultMap) {
+		for (String i : resultMap.keySet()) {
+			  System.out.println("hashmap test: " +i);
+			}
 		ArrayList<XYSeries> lines = new ArrayList<XYSeries>();
-		int size = descriptions.size();		
+		int size = 3;		//////////////// desc size
 		for(int i = 0; i < size; i++) {
-			XYSeries temp = new XYSeries(descriptions.get(i));									
+			XYSeries temp = new XYSeries(i);	//////////////////////	desc size							
 			lines.add(temp);
 		}
 		
@@ -87,7 +68,7 @@ public class Viewer_Line extends Viewer{
 			dataset.addSeries(lines.get(i));
 		}
 
-		JFreeChart chart = ChartFactory.createXYLineChart("", "Year", "", dataset,
+		chart = ChartFactory.createXYLineChart("", "Year", "", dataset,
 				PlotOrientation.VERTICAL, true, true, false);
 
 		XYPlot plot = chart.getXYPlot();
@@ -114,9 +95,6 @@ public class Viewer_Line extends Viewer{
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-	}
-	
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
+
 	}
 }
