@@ -152,9 +152,6 @@ public class MainUI extends JFrame {
 		removeView.addActionListener(removeViewListener);
 	}	
 
-	protected static void popupMsg(String msg) {
-		JOptionPane.showMessageDialog(null, msg);
-	}
 	
 	public static void startMainUI() throws IOException {
 

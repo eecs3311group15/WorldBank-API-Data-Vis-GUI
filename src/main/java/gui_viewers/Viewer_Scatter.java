@@ -141,7 +141,9 @@ public class Viewer_Scatter extends Viewer{
 		chartPanel = new ChartPanel(scatterChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);*/
+		chartPanel.setBackground(Color.white);
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);*/
 	}
 
 }

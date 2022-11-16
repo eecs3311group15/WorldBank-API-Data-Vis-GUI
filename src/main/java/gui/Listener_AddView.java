@@ -27,7 +27,7 @@ class Listener_AddView implements ActionListener{
 		String _country = String.valueOf(MainUI.countriesList.getSelectedItem());
 		if(!AnalysesFacade.exclusionListCheck(_country)) {
 
-			MainUI.popupMsg(_country + "'s data is unavailable, please select another country");
+			Helper.popupMsg(_country + "'s data is unavailable, please select another country");
 			
 			MainUI.countriesList.setEnabled(true);	
 			MainUI.fromList.setEnabled(true);
@@ -49,7 +49,7 @@ class Listener_AddView implements ActionListener{
 				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType));				
 				
 			}else {				
-				MainUI.popupMsg(analysisType + " is not compatible with " + viewerType);
+				Helper.popupMsg(analysisType + " is not compatible with " + viewerType);
 			}			
 			
 		}

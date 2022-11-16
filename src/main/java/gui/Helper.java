@@ -1,11 +1,16 @@
 package gui;
 
 import java.util.HashMap;
+
+import javax.swing.JOptionPane;
+
 import com.csvreader.CsvReader;
 
 class Helper {
 	
-	
+	protected static void popupMsg(String msg) {
+		JOptionPane.showMessageDialog(null, msg);
+	}
 	
 	protected static void loadUserData(String path) throws Exception{
 	    	
