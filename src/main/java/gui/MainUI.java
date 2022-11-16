@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -151,6 +152,10 @@ public class MainUI extends JFrame {
 		removeView.addActionListener(removeViewListener);
 	}	
 
+	protected static void popupMsg(String msg) {
+		JOptionPane.showMessageDialog(null, msg);
+	}
+	
 	public static void startMainUI() throws IOException {
 
 		JFrame frame = MainUI.getInstance();
