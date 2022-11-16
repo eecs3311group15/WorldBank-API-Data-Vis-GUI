@@ -22,22 +22,8 @@ public class Viewer_Pie extends Viewer{
 	
 	protected Viewer_Pie(String viewerTitle) {
 		super(viewerTitle);
-
-		JFreeChart pieChart = ChartFactory.createMultiplePieChart(viewerTitle, null,
-				TableOrder.BY_COLUMN, true, true, false);
-
-		chartPanel = new ChartPanel(pieChart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-
-		
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
-
 	}
 
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
-	}
 	@Override
 	public void update(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
@@ -61,6 +47,8 @@ public class Viewer_Pie extends Viewer{
 		
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);
 		/*DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.addValue(3.946, "Unemployed", "Men");
 		dataset.addValue(96.054, "Employed", "Men");

@@ -20,24 +20,7 @@ public class Viewer_Report extends Viewer{
 	protected JScrollPane outputScrollPane;
 	
 	protected Viewer_Report(String viewerTitle) {
-		super(viewerTitle);
-		
-		JTextArea report = new JTextArea();
-		report.setEditable(false);
-		report.setPreferredSize(new Dimension(400, 300));
-		report.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		report.setBackground(Color.white);
-		String reportMessage;
-
-		reportMessage = viewerTitle + "==============================\n" + "Please press Recalculate\n";
-
-		report.setText(reportMessage);
-		outputScrollPane = new JScrollPane(report);
-
-	}
-	
-	public void addToPanel(JPanel west) {
-		west.add(outputScrollPane);
+		super(viewerTitle);		
 	}
 
 	@Override
@@ -75,6 +58,8 @@ public class Viewer_Report extends Viewer{
 		
 		outputScrollPane = new JScrollPane(report, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		outputScrollPane.setPreferredSize(new Dimension(400, 300));
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(outputScrollPane);
 		/*JTextArea report = new JTextArea();
 		report.setEditable(false);
 		report.setPreferredSize(new Dimension(400, 300));

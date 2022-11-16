@@ -32,20 +32,8 @@ public class Viewer_Line extends Viewer {
 	
 	protected Viewer_Line(String analysisType) {
 		super(analysisType);
-		
-		chart = ChartFactory.createXYLineChart("", "Year", "", null, PlotOrientation.VERTICAL, true, true, false);
-		chart.getLegend().setFrame(BlockBorder.NONE);
-		chart.setTitle(new TextTitle(analysisType, new Font("Serif", java.awt.Font.BOLD, 18)));
-
-		chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
 	}
 	
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
-	}
 	public void update(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
@@ -96,6 +84,7 @@ public class Viewer_Line extends Viewer {
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);
 	}
 }

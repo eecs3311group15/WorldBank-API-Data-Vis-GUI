@@ -30,22 +30,8 @@ public class Viewer_Scatter extends Viewer{
 	protected Viewer_Scatter(String viewerTitle) {
 		super(viewerTitle);
 
-		XYPlot plot = new XYPlot();
+	}
 
-		JFreeChart scatterChart = new JFreeChart(viewerTitle,
-				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-		
-		chartPanel = new ChartPanel(scatterChart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
-	}
-	public void setViewWithData() {
-		
-	}
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
-	}
 	@Override
 	public void update(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
@@ -89,8 +75,10 @@ public class Viewer_Scatter extends Viewer{
 		
 		chartPanel = new ChartPanel(scatterChart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+		
 		chartPanel.setBackground(Color.white);
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);
 		/*TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);

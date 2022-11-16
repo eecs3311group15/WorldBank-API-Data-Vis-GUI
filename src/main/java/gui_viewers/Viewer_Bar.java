@@ -26,27 +26,9 @@ public class Viewer_Bar extends Viewer{
 	protected ChartPanel chartPanel;
 	
 	protected Viewer_Bar(String viewerTitle) {
-		super(viewerTitle);		
-
-		CategoryPlot plot = new CategoryPlot();
-
-		JFreeChart barChart = new JFreeChart(viewerTitle,
-				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-
-		chartPanel = new ChartPanel(barChart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
-		
+		super(viewerTitle);				
 	}
-	public void setViewWithData() {
-		
-	}
-	
-	
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
-	}
+
 	@Override
 	public void update(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
@@ -87,7 +69,8 @@ public class Viewer_Bar extends Viewer{
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);
 		
 		
 		/*DefaultCategoryDataset dataset = new DefaultCategoryDataset();

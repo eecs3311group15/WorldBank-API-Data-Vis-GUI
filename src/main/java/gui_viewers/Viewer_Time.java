@@ -25,19 +25,10 @@ public class Viewer_Time extends Viewer{
 	
 	protected Viewer_Time(String viewerTitle) {
 		super(viewerTitle);
-
-		XYPlot plot = new XYPlot();
-
-		JFreeChart chart = new JFreeChart(viewerTitle,
-				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-
-		chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);
 	}
-	
-	public void setViewWithData() {
+
+	@Override
+	public void update(DataContainer data) {
 		TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -101,15 +92,8 @@ public class Viewer_Time extends Viewer{
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-	}
-	
-	public void addToPanel(JPanel west) {
-		west.add(chartPanel);
-	}
-
-	@Override
-	public void update(DataContainer data) {
-		// TODO Auto-generated method stub
+		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		main.add(chartPanel);
 		
 	}
 }
