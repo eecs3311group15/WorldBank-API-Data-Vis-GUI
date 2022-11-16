@@ -37,7 +37,7 @@ class Listener_AddView implements ActionListener{
 			//Need to implement pop up window for this
 			System.out.println(_country + "'s data is unavailable, please select another country");
 		}else {
-			///////////////
+			///////////////Parameters from GUI/////////////
 			String _countryCode = MainUI.countryHashMap.get(_country);
 			String analysisType = String.valueOf(methodsList.getSelectedItem());
 			String selectedFrom = String.valueOf (from.getSelectedItem());   
@@ -45,29 +45,25 @@ class Listener_AddView implements ActionListener{
 			int _from = Integer.parseInt(selectedFrom);
 			int _to = Integer.parseInt(selectedTo);		
 			String viewerType = String.valueOf(viewsList.getSelectedItem());
-			///////////////
-			/*Need to implement Viewer/Analysis compatibility check*/
+			/////////////////////////////////////////////////
 			
+			/*compatibility check*/			
 			Analysis temp = AnalysisFactory.getAnalysis(analysisType, _country, _from, _to);
 			HashMap<String, Boolean> compatibility = temp.getCompatibility();
+			
 			if(compatibility.get(viewerType)) {
-				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));
+				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));				
 				
-				for (Viewer i : MainUI.viewers) {
-					i.addToPanel(MainUI.west);
-				}
-				
-				MainUI.getInstance().validate();
-				MainUI.getInstance().repaint();
-			}else {
+			}else {				
 				System.out.println(analysisType + " is not compatible with " + viewerType);
-			}
-			
-			
-			
+			}			
 			
 		}
-		
+		for (Viewer i : MainUI.viewers) {
+			i.addToPanel(MainUI.west);
+		}
+		MainUI.getInstance().validate();
+		MainUI.getInstance().repaint();
 		
 		
 		
