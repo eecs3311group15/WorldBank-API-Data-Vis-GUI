@@ -23,14 +23,15 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import analyses.Analysis;
 import analyses.AnalysisFactory;
+import analyses.DataContainer;
 
-public class Viewer_Line extends Viewer implements DataObserver{
+public class Viewer_Line extends Viewer {
 	protected ChartPanel chartPanel;
 	protected JFreeChart chart;
 	
 	
-	protected Viewer_Line(String analysisType, String country, int from, int to) {
-		super(analysisType, country, from, to);
+	protected Viewer_Line(String analysisType) {
+		super(analysisType);
 		
 		chart = ChartFactory.createXYLineChart("", "Year", "", null, PlotOrientation.VERTICAL, true, true, false);
 		chart.getLegend().setFrame(BlockBorder.NONE);
@@ -45,21 +46,21 @@ public class Viewer_Line extends Viewer implements DataObserver{
 	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
 	}
-	public void update(HashMap<String, ArrayList<Double>> resultMap) {
-		for (String i : resultMap.keySet()) {
-			  System.out.println("hashmap test: " +i);
-			}
+	public void update(DataContainer data) {
+		HashMap<String, ArrayList<Double>> resultMap = data.getData();
+		ArrayList<String> description = data.getDescription();
+
 		ArrayList<XYSeries> lines = new ArrayList<XYSeries>();
-		int size = 3;		//////////////// desc size
+		int size = description.size();		//////////////// desc size
 		for(int i = 0; i < size; i++) {
-			XYSeries temp = new XYSeries(i);	//////////////////////	desc size							
+			XYSeries temp = new XYSeries(description.get(i));	//////////////////////	desc size							
 			lines.add(temp);
 		}
 		
 		for(String k : resultMap.keySet()) {			
 			ArrayList<Double> thisYearData = resultMap.get(k);
 			for(int i = 0; i < thisYearData.size(); i++) {
-				lines.get(i).add(Double. parseDouble(k), thisYearData.get(i));
+				lines.get(i).add(Integer. parseInt(k), thisYearData.get(i));
 			}	
 		}
 

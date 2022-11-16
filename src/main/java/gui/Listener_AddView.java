@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 
 import analyses.Analysis;
 import analyses.AnalysisFactory;
+import gui_viewers.Strategy_Viewer;
 import gui_viewers.Viewer;
 import gui_viewers.ViewerFactory;
 
@@ -45,8 +46,9 @@ class Listener_AddView implements ActionListener{
 			Analysis temp = AnalysisFactory.getAnalysis(analysisType, _country, _from, _to);
 			HashMap<String, Boolean> compatibility = temp.getCompatibility();
 			
-			if(compatibility.get(viewerType)) {
-				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType, _countryCode, _from, _to));				
+			if(compatibility.get(viewerType)) {			
+				
+				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType));				
 				
 			}else {				
 				System.out.println(analysisType + " is not compatible with " + viewerType);

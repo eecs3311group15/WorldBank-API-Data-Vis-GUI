@@ -129,7 +129,7 @@ public class MainUI extends JFrame {
 		south.add(methodsList);
 		south.add(recalculate);
 				
-		ActionListener actionListener = new Listener_Recalculate(countriesList, fromList, toList);
+		ActionListener actionListener = new Listener_Recalculate();
 		recalculate.addActionListener(actionListener);
 
 		JPanel east = new JPanel();

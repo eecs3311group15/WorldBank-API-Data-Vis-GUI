@@ -10,19 +10,7 @@ import analyses.AnalysisFactory;
 import gui_viewers.Viewer;
 
 class Listener_Recalculate implements ActionListener{
-	
-	private JComboBox<String> country;
-	private JComboBox<String> from;
-	private JComboBox<String> to;
-	
-	public Listener_Recalculate (JComboBox<String> country, JComboBox<String> from, JComboBox<String> to) {
-				
-		this.country = country;
-		this.from = from;
-		this.to = to;
-	}
-	
-	
+		
 	public void actionPerformed(ActionEvent e) {
 		MainUI.west.removeAll();
 		MainUI.west.validate();
@@ -39,7 +27,7 @@ class Listener_Recalculate implements ActionListener{
 		AnalysesFacade preAnalysesCheck = new AnalysesFacade();
 		System.out.println("Passed Year range check: " + preAnalysesCheck.yearCheck(_from, _to));
 		System.out.println("Passed Exclusion country check: " + preAnalysesCheck.exclusionListCheck(_country));
-		
+			
 		
 		String analysisType = String.valueOf(MainUI.methodsList.getSelectedItem()); 
 		Analysis analysis = AnalysisFactory.getAnalysis(analysisType, _countryCode, _from, _to);

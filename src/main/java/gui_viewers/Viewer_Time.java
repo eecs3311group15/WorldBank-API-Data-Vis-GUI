@@ -17,12 +17,14 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
 
+import analyses.DataContainer;
+
 public class Viewer_Time extends Viewer{
 	
 	protected ChartPanel chartPanel;
 	
-	protected Viewer_Time(String viewerTitle, String country, int from, int to) {
-		super(viewerTitle, country, from, to);
+	protected Viewer_Time(String viewerTitle) {
+		super(viewerTitle);
 
 		XYPlot plot = new XYPlot();
 
@@ -103,5 +105,11 @@ public class Viewer_Time extends Viewer{
 	
 	public void addToPanel(JPanel west) {
 		west.add(chartPanel);
+	}
+
+	@Override
+	public void update(DataContainer data) {
+		// TODO Auto-generated method stub
+		
 	}
 }

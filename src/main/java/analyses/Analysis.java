@@ -15,6 +15,8 @@ public abstract class Analysis {
 	protected ArrayList<String> analysis_description = new ArrayList<String>();
 	protected HashMap<String, ArrayList<Double>> resultMap = new HashMap<String, ArrayList<Double>>(); //Key: year, value: each year's data
 	protected HashMap<String, Boolean> compatibility = new HashMap<String, Boolean>();
+	protected DataContainer data;
+	
 	
 	protected ArrayList<Viewer> observers = new ArrayList<Viewer>();
 	
@@ -25,14 +27,15 @@ public abstract class Analysis {
 		
 	}
 	public ArrayList<String> getDescription() { return analysis_description; }
-	public HashMap<String, ArrayList<Double>> returnData(){ return resultMap; };
+
 	public HashMap<String, Boolean> getCompatibility(){ return compatibility; };
 	
 	
 	public abstract void runAnalyses();
 	public void updateObservers() {
+		data = new DataContainer(analysis_description, resultMap);
 		for(Viewer view : observers) {
-			view.update(resultMap);
+			view.update(data);
 		}
 	}
 	

@@ -5,24 +5,23 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-public class Viewer implements DataObserver{
+import analyses.DataContainer;
+
+public abstract class Viewer implements DataObserver, Strategy{
 	
 	protected String viewerTitle;
-	private String country;
-	private int from;
-	private int to;
+
 	
-	Viewer(String viewerTitle, String country, int from, int to){
+	Viewer(String viewerTitle){
 		this.viewerTitle = viewerTitle;
-		this.country = country;
-		this.from = from;
-		this.to = to;
 	}
 	
 	public void addToPanel(JPanel west) {}
 
-	public void update(HashMap<String, ArrayList<Double>> resultMap) {
-		// TODO Auto-generated method stub
-		
+	public abstract void update(DataContainer data);
+
+	public Viewer addViewer() {
+
+		return this;
 	};
 }
