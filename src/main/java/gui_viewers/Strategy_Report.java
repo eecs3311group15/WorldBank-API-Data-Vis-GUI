@@ -16,19 +16,17 @@ import org.jfree.data.xy.XYSeries;
 
 import analyses.DataContainer;
 
-public class Viewer_Report extends Viewer{
-	protected JScrollPane outputScrollPane;
-	
-	protected Viewer_Report(String viewerTitle) {
+public class Strategy_Report extends Strategy{
+
+	public Strategy_Report(String viewerTitle) {
 		super(viewerTitle);		
 	}
 
-	@Override
-	public void update(DataContainer data) {
-		
+	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
 		
+		JScrollPane outputScrollPane;
 		ArrayList<String> lines = new ArrayList<String>();
 		int size = description.size();	
 		for(int i = 0; i < size; i++) {
@@ -60,6 +58,7 @@ public class Viewer_Report extends Viewer{
 		outputScrollPane.setPreferredSize(new Dimension(400, 300));
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(outputScrollPane);
+		return main;
 		/*JTextArea report = new JTextArea();
 		report.setEditable(false);
 		report.setPreferredSize(new Dimension(400, 300));

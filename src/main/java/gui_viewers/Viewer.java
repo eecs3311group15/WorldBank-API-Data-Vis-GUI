@@ -2,20 +2,19 @@ package gui_viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import analyses.DataContainer;
 
-public abstract class Viewer implements DataObserver, Strategy{
+public class Viewer implements DataObserver{
+	JPanel main;
+	String viewerTitle;
+	GraphStrategy strategy;
+	DataContainer data;
 	
-	protected String viewerTitle;
-	protected JPanel main;
-	
-	Viewer(String viewerTitle){
+	public Viewer(String viewerTitle){
 		this.viewerTitle = viewerTitle;
 		main = new JPanel();
 		main.setPreferredSize(new Dimension(400, 300));
@@ -23,12 +22,16 @@ public abstract class Viewer implements DataObserver, Strategy{
 		main.setBackground(Color.white);
 	}
 	
-	public void addToPanel(JPanel west) { west.add(main); }
-
-	public abstract void update(DataContainer data);
-
-	public Viewer addViewer() {
-
-		return this;
-	};
+	public void setStrategy(GraphStrategy strategy) {
+		this.strategy = strategy;
+		this.main = strategy.updateGraph(data);
+	}
+	
+	public void addToPanel(JPanel west) { 
+		west.add(main); 
+	}
+	
+	public void update(DataContainer data) {
+		this.data = data;
+	}
 }

@@ -7,6 +7,13 @@ import javax.swing.JComboBox;
 
 import analyses.Analysis;
 import analyses.AnalysisFactory;
+import gui_viewers.Strategy;
+import gui_viewers.Strategy_Bar;
+import gui_viewers.Strategy_Line;
+import gui_viewers.Strategy_Pie;
+import gui_viewers.Strategy_Report;
+import gui_viewers.Strategy_Scatter;
+import gui_viewers.Strategy_Time;
 import gui_viewers.Viewer;
 
 class Listener_Recalculate implements ActionListener{
@@ -31,13 +38,35 @@ class Listener_Recalculate implements ActionListener{
 		
 		String analysisType = String.valueOf(MainUI.methodsList.getSelectedItem()); 
 		Analysis analysis = AnalysisFactory.getAnalysis(analysisType, _countryCode, _from, _to);
-		analysis.addObservers(MainUI.viewers);
+		
 		analysis.runAnalyses();
-		analysis.updateObservers();
+		analysis.updateObservers(Helper.viewers);
 		
 		
-		for (Viewer i : analysis.getObservers()) {
-			i.addToPanel(MainUI.west);
+		for(int i = 0; i < Helper.viewers.size(); i++) {
+			Strategy strategy = null;
+			
+			if(Helper.selectedStrategies.get(i).equals("Bar Chart")) {
+				strategy = new Strategy_Bar(analysisType);
+				
+			}else if(Helper.selectedStrategies.get(i).equals("Line Chart")) {
+				strategy = new Strategy_Line(analysisType);
+				
+			}else if(Helper.selectedStrategies.get(i).equals("Pie Chart")) {
+				strategy = new Strategy_Pie(analysisType);
+				
+			}else if(Helper.selectedStrategies.get(i).equals("Report")) {
+				strategy = new Strategy_Report(analysisType);
+				
+			}else if(Helper.selectedStrategies.get(i).equals("Scatter Chart")) {
+				strategy = new Strategy_Scatter(analysisType);
+				
+			}else if(Helper.selectedStrategies.get(i).equals("Time Chart")) {
+				strategy = new Strategy_Time(analysisType);			
+			}
+			
+			Helper.viewers.get(i).setStrategy(strategy);			
+			Helper.viewers.get(i).addToPanel(MainUI.west);
 		}
 		
 		MainUI.getInstance().validate();

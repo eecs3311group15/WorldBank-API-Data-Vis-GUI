@@ -1,12 +1,18 @@
 package gui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
 import com.csvreader.CsvReader;
 
+import gui_viewers.Viewer;
+
 class Helper {
+	
+	protected static ArrayList<String> selectedStrategies = new ArrayList<String>();
+	protected static ArrayList<Viewer> viewers = new ArrayList<Viewer>();
 	
 	protected static void popupMsg(String msg) {
 		JOptionPane.showMessageDialog(null, msg);

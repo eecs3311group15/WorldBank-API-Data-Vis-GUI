@@ -4,13 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-import javax.swing.JComboBox;
-
 import analyses.Analysis;
 import analyses.AnalysisFactory;
-import gui_viewers.Strategy_Viewer;
 import gui_viewers.Viewer;
-import gui_viewers.ViewerFactory;
 
 class Listener_AddView implements ActionListener{
 	
@@ -45,15 +41,16 @@ class Listener_AddView implements ActionListener{
 			Analysis temp = AnalysisFactory.getAnalysis(analysisType, _country, _from, _to);
 			HashMap<String, Boolean> compatibility = temp.getCompatibility();
 			
-			if(compatibility.get(viewerType)) {						
-				MainUI.viewers.add(ViewerFactory.createViewer(viewerType, analysisType));				
+			if(compatibility.get(viewerType)) {		
+				Helper.selectedStrategies.add(viewerType);
+				Helper.viewers.add(new Viewer(analysisType));				
 				
 			}else {				
 				Helper.popupMsg(analysisType + " is not compatible with " + viewerType);
 			}			
 			
 		}
-		for (Viewer i : MainUI.viewers) {
+		for (Viewer i : Helper.viewers) {
 			i.addToPanel(MainUI.west);
 		}
 		MainUI.getInstance().validate();

@@ -16,19 +16,17 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import analyses.DataContainer;
 
-public class Viewer_Pie extends Viewer{
+public class Strategy_Pie extends Strategy{	
 	
-	protected ChartPanel chartPanel;
-	
-	protected Viewer_Pie(String viewerTitle) {
+	public Strategy_Pie(String viewerTitle) {
 		super(viewerTitle);
 	}
 
-	@Override
-	public void update(DataContainer data) {
+	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
 		
+		ChartPanel chartPanel;
 		ArrayList<Double> thisYearData = new ArrayList<Double>();
 		for(String k : resultMap.keySet()) {
 			thisYearData = resultMap.get(k);
@@ -49,6 +47,7 @@ public class Viewer_Pie extends Viewer{
 		chartPanel.setBackground(Color.white);
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(chartPanel);
+		return main;
 		/*DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		dataset.addValue(3.946, "Unemployed", "Men");
 		dataset.addValue(96.054, "Employed", "Men");

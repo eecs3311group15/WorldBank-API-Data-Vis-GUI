@@ -1,10 +1,3 @@
-/*************************************************
- * FALL 2022
- * EECS 3311 GUI SAMPLE CODE
- * ONLT AS A REFERENCE TO SEE THE USE OF THE jFree FRAMEWORK
- * THE CODE BELOW DOES NOT DEPICT THE DESIGN TO BE FOLLOWED 
- */
-
 package gui;
 
 import java.awt.BorderLayout;
@@ -20,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -35,7 +27,7 @@ public class MainUI extends JFrame {
 	private static MainUI instance;
 
 	static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
-	protected static ArrayList<Viewer> viewers = new ArrayList<Viewer>();
+	
 	protected static JPanel west;
 	
 	protected static JComboBox<String> viewsList;

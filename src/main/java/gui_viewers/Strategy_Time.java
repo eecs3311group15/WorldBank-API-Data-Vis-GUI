@@ -23,19 +23,17 @@ import org.jfree.data.time.Year;
 
 import analyses.DataContainer;
 
-public class Viewer_Time extends Viewer{
+public class Strategy_Time extends Strategy{
 	
-	protected ChartPanel chartPanel;
-	
-	protected Viewer_Time(String viewerTitle) {
+	public Strategy_Time(String viewerTitle) {
 		super(viewerTitle);
 	}
 
-	@Override
-	public void update(DataContainer data) {
+	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
 		
+		ChartPanel chartPanel;
 		ArrayList<TimeSeries> lines = new ArrayList<TimeSeries>();
 		int size = description.size();	
 		for(int i = 0; i < size; i++) {
@@ -78,6 +76,7 @@ public class Viewer_Time extends Viewer{
 		chartPanel.setBackground(Color.white);
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(chartPanel);
+		return main;
 		/*TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);

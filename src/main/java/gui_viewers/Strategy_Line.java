@@ -25,23 +25,22 @@ import analyses.Analysis;
 import analyses.AnalysisFactory;
 import analyses.DataContainer;
 
-public class Viewer_Line extends Viewer {
-	protected ChartPanel chartPanel;
-	protected JFreeChart chart;
+public class Strategy_Line extends Strategy{
 	
-	
-	protected Viewer_Line(String analysisType) {
-		super(analysisType);
+	public Strategy_Line(String viewerTitle) {
+		super(viewerTitle);
 	}
-	
-	public void update(DataContainer data) {
+
+	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
-
+		
+		ChartPanel chartPanel;
+		JFreeChart chart;
 		ArrayList<XYSeries> lines = new ArrayList<XYSeries>();
-		int size = description.size();		//////////////// desc size
+		int size = description.size();
 		for(int i = 0; i < size; i++) {
-			XYSeries temp = new XYSeries(description.get(i));	//////////////////////	desc size							
+			XYSeries temp = new XYSeries(description.get(i));							
 			lines.add(temp);
 		}
 		
@@ -86,5 +85,6 @@ public class Viewer_Line extends Viewer {
 		chartPanel.setBackground(Color.white);
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(chartPanel);
+		return main;
 	}
 }

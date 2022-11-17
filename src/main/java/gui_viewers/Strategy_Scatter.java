@@ -23,20 +23,17 @@ import org.jfree.data.xy.XYSeries;
 
 import analyses.DataContainer;
 
-public class Viewer_Scatter extends Viewer{
-
-	protected ChartPanel chartPanel;
+public class Strategy_Scatter extends Strategy{
 	
-	protected Viewer_Scatter(String viewerTitle) {
+	public Strategy_Scatter(String viewerTitle) {
 		super(viewerTitle);
-
 	}
 
-	@Override
-	public void update(DataContainer data) {
+	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
 		
+		ChartPanel chartPanel;
 		ArrayList<TimeSeries> lines = new ArrayList<TimeSeries>();
 		int size = description.size();	
 		for(int i = 0; i < size; i++) {
@@ -79,6 +76,7 @@ public class Viewer_Scatter extends Viewer{
 		chartPanel.setBackground(Color.white);
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(chartPanel);
+		return main;
 		/*TimeSeries series1 = new TimeSeries("Mortality/1000 births");
 		series1.add(new Year(2018), 5.6);
 		series1.add(new Year(2017), 5.7);
@@ -144,6 +142,7 @@ public class Viewer_Scatter extends Viewer{
 		chartPanel.setBackground(Color.white);
 		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
 		main.add(chartPanel);*/
+		
 	}
 
 }
