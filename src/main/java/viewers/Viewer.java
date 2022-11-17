@@ -1,9 +1,10 @@
-package gui_viewers;
+package viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import analyses.DataContainer;
@@ -17,6 +18,8 @@ public class Viewer implements DataObserver{
 	public Viewer(String viewerTitle){
 		this.viewerTitle = viewerTitle;
 		main = new JPanel();
+		JLabel text = new JLabel("Please press Recalculate to display analysis results");
+		main.add(text);
 		main.setPreferredSize(new Dimension(400, 300));
 		main.setBorder(BorderFactory.createTitledBorder(viewerTitle));
 		main.setBackground(Color.white);

@@ -10,23 +10,10 @@ import datafetcher.DataFetcherHelper;
 
 public class ANN_PCT_CHG_pm25Forest extends Analysis{
 
-	
 	private final String pm25code = "EN.ATM.PM25.MC.M3";
 	private final String forestcode = "AG.LND.FRST.ZS";
 	
-	private JsonArray pm25;
-	private JsonArray forest;
-	
-	public ANN_PCT_CHG_pm25Forest(String country, int from, int to){
-		super(country, from, to);		
-		int _from = from -1;
-		
-		pm25 = DataFetcher.getJsonObject(pm25code, country, _from, to);
-		forest = DataFetcher.getJsonObject(forestcode, country, _from, to);
-		
-		analysis_description.add(DataFetcherHelper.getDescription(pm25));
-		analysis_description.add(DataFetcherHelper.getDescription(forest));
-		
+	public ANN_PCT_CHG_pm25Forest(){
 		compatibility.put("Pie Chart", false);
 		compatibility.put("Line Chart", true);
 		compatibility.put("Bar Chart", true);
@@ -35,9 +22,16 @@ public class ANN_PCT_CHG_pm25Forest extends Analysis{
 		compatibility.put("Report", true);
 	}
 	
-	public void runAnalyses() {
+	public void runAnalyses(String country, int from, int to) {
+		int _from = from -1;
+		
+		JsonArray pm25 = DataFetcher.getJsonObject(pm25code, country, _from, to);
+		JsonArray forest = DataFetcher.getJsonObject(forestcode, country, _from, to);
+		
+		analysis_description.add(DataFetcherHelper.getDescription(pm25));
+		analysis_description.add(DataFetcherHelper.getDescription(forest));
+		
 		int sizeOfResults = to - from;	
-
 		for (int i = 1; i < sizeOfResults - 1; i++) {
 			int year = DataFetcherHelper.getYear(pm25, i);
 			

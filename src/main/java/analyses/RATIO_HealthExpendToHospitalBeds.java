@@ -13,17 +13,7 @@ public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 	private final String healthCode= "SH.XPD.CHEX.PC.CD";
 	private final String bedsCode = "SH.MED.BEDS.ZS";
 	
-	private JsonArray healthExp;
-	private JsonArray hospitalBeds;
-	
-	public RATIO_HealthExpendToHospitalBeds(String country, int from, int to){
-		super(country, from, to);
-		
-		healthExp = DataFetcher.getJsonObject(healthCode, country, from, to);
-		hospitalBeds = DataFetcher.getJsonObject(bedsCode, country, from, to);
-		
-		analysis_description.add("Health expenditure / Hospital bed ratio");
-		
+	public RATIO_HealthExpendToHospitalBeds(){	
 		compatibility.put("Pie Chart", false);
 		compatibility.put("Line Chart", true);
 		compatibility.put("Bar Chart", true);
@@ -32,8 +22,12 @@ public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 		compatibility.put("Report", true);
 	}
 	
-	public void runAnalyses() {
-						
+	public void runAnalyses(String country, int from, int to) {
+		JsonArray healthExp = DataFetcher.getJsonObject(healthCode, country, from, to);
+		JsonArray hospitalBeds = DataFetcher.getJsonObject(bedsCode, country, from, to);
+		
+		analysis_description.add("Health expenditure / Hospital bed ratio");
+		
 		int sizeOfResults = healthExp.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {
 			int year = DataFetcherHelper.getYear(healthExp, i);

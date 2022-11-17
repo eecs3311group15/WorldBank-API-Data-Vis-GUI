@@ -12,15 +12,7 @@ public class AVG_forestToLand extends Analysis{
 	
 	private final String forestCode = "AG.LND.FRST.ZS";
 	
-	private JsonArray forest;
-	
-	public AVG_forestToLand(String country, int from, int to){
-		super(country, from, to);
-		
-		forest = DataFetcher.getJsonObject(forestCode, country, from, to);
-		analysis_description.add(DataFetcherHelper.getDescription(forest));
-		analysis_description.add("All other purposes");
-		
+	public AVG_forestToLand(){		
 		compatibility.put("Pie Chart", true);
 		compatibility.put("Line Chart", false);
 		compatibility.put("Bar Chart", false);
@@ -29,8 +21,11 @@ public class AVG_forestToLand extends Analysis{
 		compatibility.put("Report", true);
 	}
 	
-	public void runAnalyses() {
-				
+	public void runAnalyses(String country, int from, int to) {
+		JsonArray forest = DataFetcher.getJsonObject(forestCode, country, from, to);
+		analysis_description.add(DataFetcherHelper.getDescription(forest));
+		analysis_description.add("All other purposes");
+		
 		int sizeOfResults = forest.get(1).getAsJsonArray().size();
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {

@@ -11,16 +11,8 @@ import datafetcher.DataFetcherHelper;
 public class AVG_EducationExpenditureToGDP extends Analysis{
 
 	private final String educationCode= "SE.XPD.TOTL.GD.ZS";
-
-	private JsonArray educationExp;
 	
-	public AVG_EducationExpenditureToGDP(String country, int from, int to){
-		super(country, from, to);
-		educationExp = DataFetcher.getJsonObject(educationCode, country, from, to);
-		
-		analysis_description.add(DataFetcherHelper.getDescription(educationExp));
-		analysis_description.add("All other purposes");
-		
+	public AVG_EducationExpenditureToGDP(){
 		compatibility.put("Pie Chart", true);
 		compatibility.put("Line Chart", false);
 		compatibility.put("Bar Chart", false);
@@ -30,8 +22,11 @@ public class AVG_EducationExpenditureToGDP extends Analysis{
 
 	}
 	
-	public void runAnalyses() {
-	
+	public void runAnalyses(String country, int from, int to) {
+		JsonArray educationExp = DataFetcher.getJsonObject(educationCode, country, from, to);		
+		analysis_description.add(DataFetcherHelper.getDescription(educationExp));
+		analysis_description.add("All other purposes");
+		
 		int sizeOfResults = educationExp.get(1).getAsJsonArray().size();
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {

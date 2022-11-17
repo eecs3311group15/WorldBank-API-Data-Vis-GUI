@@ -1,4 +1,4 @@
-package gui_viewers;
+package viewers;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

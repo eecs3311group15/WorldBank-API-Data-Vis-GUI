@@ -1,14 +1,6 @@
-package gui_viewers;
+package viewers;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-
-import analyses.DataContainer;
 
 public abstract class Strategy implements GraphStrategy{
 	

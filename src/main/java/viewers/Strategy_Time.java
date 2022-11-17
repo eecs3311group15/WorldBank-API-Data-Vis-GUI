@@ -1,4 +1,4 @@
-package gui_viewers;
+package viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,16 +16,16 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.renderer.xy.XYSplineRenderer;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
 
 import analyses.DataContainer;
 
-public class Strategy_Scatter extends Strategy{
+public class Strategy_Time extends Strategy{
 	
-	public Strategy_Scatter(String viewerTitle) {
+	public Strategy_Time(String viewerTitle) {
 		super(viewerTitle);
 	}
 
@@ -51,17 +51,17 @@ public class Strategy_Scatter extends Strategy{
 		dataset.addSeries(lines.get(2));
 		
 		XYPlot plot = new XYPlot();
-		XYItemRenderer itemrenderer1 = new XYLineAndShapeRenderer(false, true);
-		XYItemRenderer itemrenderer2 = new XYLineAndShapeRenderer(false, true);
+		XYSplineRenderer splinerenderer1 = new XYSplineRenderer();
+		XYSplineRenderer splinerenderer2 = new XYSplineRenderer();
 
 		plot.setDataset(0, dataset);
-		plot.setRenderer(0, itemrenderer1);
+		plot.setRenderer(0, splinerenderer1);
 		DateAxis domainAxis = new DateAxis("Year");
 		plot.setDomainAxis(domainAxis);
 		plot.setRangeAxis(new NumberAxis(""));
 
 		plot.setDataset(1, dataset2);
-		plot.setRenderer(1, itemrenderer2);
+		plot.setRenderer(1, splinerenderer2);
 		plot.setRangeAxis(1, new NumberAxis("US$"));
 
 		plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
@@ -117,26 +117,26 @@ public class Strategy_Scatter extends Strategy{
 		dataset.addSeries(series3);
 
 		XYPlot plot = new XYPlot();
-		XYItemRenderer itemrenderer1 = new XYLineAndShapeRenderer(false, true);
-		XYItemRenderer itemrenderer2 = new XYLineAndShapeRenderer(false, true);
+		XYSplineRenderer splinerenderer1 = new XYSplineRenderer();
+		XYSplineRenderer splinerenderer2 = new XYSplineRenderer();
 
 		plot.setDataset(0, dataset);
-		plot.setRenderer(0, itemrenderer1);
+		plot.setRenderer(0, splinerenderer1);
 		DateAxis domainAxis = new DateAxis("Year");
 		plot.setDomainAxis(domainAxis);
 		plot.setRangeAxis(new NumberAxis(""));
 
 		plot.setDataset(1, dataset2);
-		plot.setRenderer(1, itemrenderer2);
+		plot.setRenderer(1, splinerenderer2);
 		plot.setRangeAxis(1, new NumberAxis("US$"));
 
 		plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
 		plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
 
-		JFreeChart scatterChart = new JFreeChart(viewerTitle,
+		JFreeChart chart = new JFreeChart(viewerTitle,
 				new Font("Serif", java.awt.Font.BOLD, 18), plot, true);
-		
-		chartPanel = new ChartPanel(scatterChart);
+
+		chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
@@ -144,5 +144,4 @@ public class Strategy_Scatter extends Strategy{
 		main.add(chartPanel);*/
 		
 	}
-
 }

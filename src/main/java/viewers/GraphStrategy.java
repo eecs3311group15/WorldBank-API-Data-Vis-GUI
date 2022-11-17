@@ -1,4 +1,4 @@
-package gui_viewers;
+package viewers;
 
 import javax.swing.JPanel;
 

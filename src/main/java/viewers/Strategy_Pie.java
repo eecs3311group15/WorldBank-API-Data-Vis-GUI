@@ -1,4 +1,4 @@
-package gui_viewers;
+package viewers;
 
 import java.awt.Color;
 import java.awt.Dimension;

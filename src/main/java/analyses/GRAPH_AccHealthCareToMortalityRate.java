@@ -1,6 +1,5 @@
 package analyses;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
@@ -10,22 +9,10 @@ import datafetcher.DataFetcherHelper;
 
 public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 
-
 	private final String accessCode= "SH.ACS.MONY.Q1.ZS";
 	private final String mortalityCode = "SP.DYN.IMRT.IN";
-	
-	private JsonArray accHealthCare;
-	private JsonArray moratlityRate;
-	
-	public GRAPH_AccHealthCareToMortalityRate(String country, int from, int to){
-		super(country, from, to);
-		
-		accHealthCare = DataFetcher.getJsonObject(accessCode, country, from, to);
-		moratlityRate = DataFetcher.getJsonObject(mortalityCode, country, from, to);
-		
-		analysis_description.add(DataFetcherHelper.getDescription(accHealthCare));
-		analysis_description.add(DataFetcherHelper.getDescription(moratlityRate));
-		
+
+	public GRAPH_AccHealthCareToMortalityRate(){
 		compatibility.put("Pie Chart", true);
 		compatibility.put("Line Chart", true);
 		compatibility.put("Bar Chart", true);
@@ -34,7 +21,12 @@ public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 		compatibility.put("Report", true);
 	}
 	
-	public void runAnalyses() {
+	public void runAnalyses(String country, int from, int to) {
+		JsonArray accHealthCare = DataFetcher.getJsonObject(accessCode, country, from, to);
+		JsonArray moratlityRate = DataFetcher.getJsonObject(mortalityCode, country, from, to);
+		
+		analysis_description.add(DataFetcherHelper.getDescription(accHealthCare));
+		analysis_description.add(DataFetcherHelper.getDescription(moratlityRate));
 		
 		int sizeOfResults = accHealthCare.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {

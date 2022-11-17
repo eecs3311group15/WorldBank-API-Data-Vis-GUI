@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import gui_viewers.*;
+import viewers.*;
 
 public class MainUI extends JFrame {
 	/**
@@ -29,6 +29,10 @@ public class MainUI extends JFrame {
 	static HashMap<String, String> countryHashMap = new HashMap<String, String>(); //Key: country name, value: country code
 	
 	protected static JPanel west;
+	protected static JButton recalculate;
+	protected static JButton reset;
+	protected static JButton addView;		
+	protected static JButton removeView;
 	
 	protected static JComboBox<String> viewsList;
 	protected static JComboBox<String> fromList;
@@ -47,7 +51,7 @@ public class MainUI extends JFrame {
 		super("Country Statistics");
 		
 		try {
-			Helper.loadCountryData();
+			AnalysisFacade.loadCountryData();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -83,8 +87,8 @@ public class MainUI extends JFrame {
 		north.add(toList);
 
 		// Set bottom bar
-		JButton recalculate = new JButton("Recalculate");
-
+		recalculate = new JButton("Recalculate");
+		reset = new JButton("Reset");
 		JLabel viewsLabel = new JLabel("Available Views: ");
 
 		Vector<String> viewsNames = new Vector<String>();
@@ -95,8 +99,8 @@ public class MainUI extends JFrame {
 		viewsNames.add("Time Chart");
 		viewsNames.add("Report");
 		viewsList = new JComboBox<String>(viewsNames);
-		JButton addView = new JButton("+");		
-		JButton removeView = new JButton("-");
+		addView = new JButton("+");		
+		removeView = new JButton("-");
 
 		JLabel methodLabel = new JLabel("        Choose analysis method: ");
 
@@ -121,6 +125,7 @@ public class MainUI extends JFrame {
 		south.add(methodLabel);
 		south.add(methodsList);
 		south.add(recalculate);
+		south.add(reset);
 				
 		ActionListener actionListener = new Listener_Recalculate();
 		recalculate.addActionListener(actionListener);
@@ -142,13 +147,16 @@ public class MainUI extends JFrame {
 		
 		ActionListener removeViewListener = new Listener_RemoveView();
 		removeView.addActionListener(removeViewListener);
+		
+		ActionListener resetListener = new Listener_Reset();
+		reset.addActionListener(resetListener);
 	}	
 
 	
 	public static void startMainUI() throws IOException {
 
 		JFrame frame = MainUI.getInstance();
-		frame.setPreferredSize(new Dimension(1000, 600));
+		frame.setPreferredSize(new Dimension(1100, 600));
 		//frame.setSize(900, 800);
 		frame.pack();
 		frame.setVisible(true);

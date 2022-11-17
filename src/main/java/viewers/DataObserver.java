@@ -1,4 +1,4 @@
-package gui_viewers;
+package viewers;
 
 import java.util.ArrayList;
 import java.util.HashMap;

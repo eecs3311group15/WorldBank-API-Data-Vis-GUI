@@ -2,32 +2,18 @@ package analyses;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import datafetcher.*;
-import gui_viewers.*
-;
+import viewers.*;
+
 public abstract class Analysis {
-	protected String country;
-	protected int from;
-	protected int to;
-	protected DataFetcher dataFetcher = new DataFetcher();
+
 	protected ArrayList<String> analysis_description = new ArrayList<String>();
 	protected HashMap<String, ArrayList<Double>> resultMap = new HashMap<String, ArrayList<Double>>(); //Key: year, value: each year's data
 	protected HashMap<String, Boolean> compatibility = new HashMap<String, Boolean>();
 	protected DataContainer data;
-		
-	protected Analysis(String country, int from, int to){
-		this.country = country ;
-		this.from = from;
-		this.to = to;	
-		
-	}
+	
 
 	public HashMap<String, Boolean> getCompatibility(){ return compatibility; };
-	
-	
-	public abstract void runAnalyses();
 	
 	public void updateObservers(ArrayList<Viewer> observers) {
 		data = new DataContainer(analysis_description, resultMap);
@@ -49,5 +35,5 @@ public abstract class Analysis {
 			}
 		}
 	}
-	
+	public abstract void runAnalyses(String country, int from, int to);
 }

@@ -40,7 +40,7 @@ public class LoginModule extends JFrame{
     	pass = new JLabel("Password:");
     	button = new JButton("Login");
     	
-    	Helper.loadUserData(path);
+    	AnalysisFacade.loadUserData(path);
    
     	panel.setLayout(null);
     	
