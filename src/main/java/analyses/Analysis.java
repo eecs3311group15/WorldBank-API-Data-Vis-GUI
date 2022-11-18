@@ -10,7 +10,7 @@ public abstract class Analysis {
 	protected ArrayList<String> analysis_description = new ArrayList<String>();
 	protected HashMap<String, ArrayList<Double>> resultMap = new HashMap<String, ArrayList<Double>>(); //Key: year, value: each year's data
 	protected HashMap<String, Boolean> compatibility = new HashMap<String, Boolean>();
-	protected DataContainer data;
+	protected DataContainer data = new DataContainer(analysis_description, resultMap);
 	
 
 	public HashMap<String, Boolean> getCompatibility(){ return compatibility; };
@@ -35,5 +35,12 @@ public abstract class Analysis {
 			}
 		}
 	}
+	
 	public abstract void runAnalyses(String country, int from, int to);
+	
+	public boolean hasData() {
+		
+		return (data.resultMap.size() == 0) ? true : true;
+	}
+	
 }

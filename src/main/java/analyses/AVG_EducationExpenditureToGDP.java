@@ -30,13 +30,17 @@ public class AVG_EducationExpenditureToGDP extends Analysis{
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {
 			double educationExpValue = DataFetcherHelper.getValue(educationExp, i);			
-			//double ratio = educationExpValue;
-			//DecimalFormat f = new DecimalFormat("##0.00000");
-			//System.out.println("Teh avergae Government expenditure on education(as % of GDP) in " + year + " is " + f.format(ratio) + "%\n");
+			if(educationExpValue == -999) {
+				continue;
+			}
+			
 			sum = sum + educationExpValue;
 		}
 		double avg_result = sum / (double)sizeOfResults;
 		double rest_result = 100.0 - avg_result;
+		
+		
+		
 		ArrayList<Double> thisYearData = new ArrayList<Double>();
 		thisYearData.add(avg_result);
 		thisYearData.add(rest_result);

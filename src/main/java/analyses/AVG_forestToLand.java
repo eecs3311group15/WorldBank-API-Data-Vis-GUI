@@ -29,6 +29,9 @@ public class AVG_forestToLand extends Analysis{
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {
 			double forestValue = DataFetcherHelper.getValue(forest, i);	
+			if(forestValue == -999) {
+				continue;
+			}
 			sum = sum + forestValue;
 		}
 		double avg_result = sum / (double)sizeOfResults;

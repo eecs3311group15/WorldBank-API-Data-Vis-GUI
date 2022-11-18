@@ -35,17 +35,15 @@ public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 			double accHealthCareValue = DataFetcherHelper.getValue(accHealthCare, i);
 			double moratlityRateValue = DataFetcherHelper.getValue(moratlityRate, i);
 			
+			System.out.println("1: " + accHealthCareValue  + "   2:  " + moratlityRateValue);
+			if(accHealthCareValue == -999 || moratlityRateValue == -999) {
+				continue;
+			}
+			
 			ArrayList<Double> thisYearData = new ArrayList<Double>();
 			thisYearData.add(accHealthCareValue);
 			thisYearData.add(moratlityRateValue);
 			resultMap.put(""+year, thisYearData);
-			//System.out.println("Problems in accessing health care (% of women) in " + year + " is " + accHealthCareValue);
-			//System.out.println("Maternal mortality eation (per 100,00 live births) in " + year + " is " + moratlityRateValue);
-			
-			//double ratio = accHealthCareValue/moratlityRateValue;
-			//DecimalFormat f = new DecimalFormat("##0.00000");
-			//System.out.println("Ratio of problems in accessing health care to maternal mortality in " + year + " is " + f.format(ratio) + "%\n");
-			
 		}
 	}
 

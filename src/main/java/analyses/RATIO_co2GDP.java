@@ -31,7 +31,11 @@ public class RATIO_co2GDP extends Analysis{
 			int year = DataFetcherHelper.getYear(co2, i);
 			double co2Value = DataFetcherHelper.getValue(co2, i);
 			double gdpValue = DataFetcherHelper.getValue(gdp, i);
-										
+			
+			if(co2Value == -999 || gdpValue == -999) {
+				continue;
+			}
+			
 			double ratio = (co2Value/gdpValue) * 100.0;
 			
 			ArrayList<Double> thisYearData = new ArrayList<Double>();

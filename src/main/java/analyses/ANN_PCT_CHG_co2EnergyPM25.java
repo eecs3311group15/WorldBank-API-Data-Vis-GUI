@@ -51,7 +51,12 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 			double co2_pct = (co2_diff/co2Value) * 100.0;	
 			double energy_pct = (energy_diff/energyValue) * 100.0;	
 			double pm25_pct = (pm25_diff/pm25Value) * 100.0;
-						
+			
+			if(co2Value == -999 || energyValue == -999 || pm25Value == -999) {
+				continue;
+			}
+			
+			
 			ArrayList<Double> thisYearData = new ArrayList<Double>();
 			thisYearData.add(co2_pct);
 			thisYearData.add(energy_pct);

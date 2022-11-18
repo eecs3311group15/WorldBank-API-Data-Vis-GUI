@@ -44,6 +44,10 @@ public class ANN_PCT_CHG_EducationToHealth extends Analysis{
 			double educationExpValue_pct = (educationExpValue_diff/educationExpValue) * 100.0;
 			double healthExpenditureValue_pct = (healthExpenditureValue_diff/healthExpenditureValue) * 100.0;
 			
+			if(educationExpValue == -999 || healthExpenditureValue == -999) {
+				continue;
+			}
+			
 			ArrayList<Double> thisYearData = new ArrayList<Double>();
 			thisYearData.add(educationExpValue_pct);
 			thisYearData.add(healthExpenditureValue_pct);

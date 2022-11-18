@@ -45,6 +45,10 @@ public class ANN_PCT_CHG_pm25Forest extends Analysis{
 			double pm25_pct = (pm25_diff/pm25Value) * 100.0;
 			double forest_pct = (forest_diff/forestValue) * 100.0;
 			
+			if(pm25Value == -999 || forestValue == -999) {
+				continue;
+			}
+			
 			ArrayList<Double> thisYearData = new ArrayList<Double>();
 			thisYearData.add(pm25_pct);
 			thisYearData.add(forest_pct);

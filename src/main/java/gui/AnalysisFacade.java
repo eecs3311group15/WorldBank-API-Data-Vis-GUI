@@ -37,22 +37,31 @@ class AnalysisFacade {
 				analysisType = String.valueOf(MainUI.methodsList.getSelectedItem()); 
 				
 				analysis.runAnalyses(countryCode, from, to);
-				analysis.updateObservers(AnalysisFacade.viewers);
+				
+				if(analysis.hasData()) {
+					analysis.updateObservers(AnalysisFacade.viewers);
+					
+					setStrategy(analysisType); //Set Graph display strategy for existing viewers
+					
+					
+					MainUI.countriesList.setEnabled(false);	
+					MainUI.fromList.setEnabled(false);
+					MainUI.toList.setEnabled(false);
+					MainUI.methodsList.setEnabled(false);
+					MainUI.recalculate.setEnabled(false);
+					MainUI.viewsList.setEnabled(false);
+					MainUI.addView.setEnabled(false);
+					MainUI.removeView.setEnabled(false);
+				}else {
+					Helper.popupMsg("All data for selected COUNTRY/YEAR/ANALYSIS is unavailable, please select options");
+				}
+				
+				
 								
-				setStrategy(analysisType); //Set Graph display strategy for existing viewers
-							
-				MainUI.countriesList.setEnabled(false);	
-				MainUI.fromList.setEnabled(false);
-				MainUI.toList.setEnabled(false);
-				MainUI.methodsList.setEnabled(false);
-				MainUI.recalculate.setEnabled(false);
-				MainUI.viewsList.setEnabled(false);
-				MainUI.addView.setEnabled(false);
-				MainUI.removeView.setEnabled(false);				
 			}					
 		}
 	}
-		
+	
 	private static void setStrategy(String analysisType) {
 		for(int i = 0; i < AnalysisFacade.viewers.size(); i++) {
 			Strategy strategy = null;

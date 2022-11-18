@@ -33,12 +33,11 @@ public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 			double healthExpValue = DataFetcherHelper.getValue(healthExp, i);
 			double hospitalBedsValue = DataFetcherHelper.getValue(hospitalBeds, i);
 			
-			//System.out.println("Government Expenditure for health services in " + year + " is " + healthExpValue);
-			//System.out.println("Hospital beds (per 1,000 people) " + year + " is " + hospitalBedsValue);
+			if(healthExpValue == -999 || hospitalBedsValue == -999) {
+				continue;
+			}
 			
 			double ratio = (healthExpValue/hospitalBedsValue) * 100.0;
-			//DecimalFormat f = new DecimalFormat("##0.00000");
-			//System.out.println("Ratio of Government Health Expenditure per hospital beds in " + year + " is " + f.format(ratio) + "%\n");
 			ArrayList<Double> thisYearData = new ArrayList<Double>();
 			thisYearData.add(ratio);
 			resultMap.put(""+year, thisYearData);

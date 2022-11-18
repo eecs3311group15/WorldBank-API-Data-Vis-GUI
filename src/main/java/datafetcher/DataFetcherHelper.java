@@ -11,8 +11,13 @@ public class DataFetcherHelper {
 		double result;
 		try {
 			result = jsonObj.get(1).getAsJsonArray().get(index).getAsJsonObject().get("value").getAsDouble();
+			System.out.println("restult: " + result);
+			if (result == 0 || result == -0) {
+				result = -999;
+			}
+			
 		}catch(Exception e) {
-			result = -1;
+			result = -999;
 		}
 		return result;
 	}
