@@ -1,8 +1,5 @@
 package datafetcher;
 
-import java.io.IOException;
-import java.text.DecimalFormat;
-
 import com.google.gson.JsonArray;
 
 public class RunDataFetcher {

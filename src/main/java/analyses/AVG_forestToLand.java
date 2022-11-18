@@ -1,6 +1,5 @@
 package analyses;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import com.google.gson.JsonArray;

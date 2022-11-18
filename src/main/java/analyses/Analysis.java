@@ -3,7 +3,7 @@ package analyses;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import viewers.*;
+import viewers.Viewer;
 
 public abstract class Analysis {
 

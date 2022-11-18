@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -15,8 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import viewers.*;
 
 public class MainUI extends JFrame {
 	/**
@@ -51,7 +48,7 @@ public class MainUI extends JFrame {
 		super("Country Statistics");
 		
 		try {
-			AnalysisFacade.loadCountryData();
+			Helper.loadCountryData();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

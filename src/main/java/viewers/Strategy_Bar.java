@@ -16,9 +16,6 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
 
 import analyses.DataContainer;
 

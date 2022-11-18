@@ -23,39 +23,37 @@ class AnalysisFacade {
 	protected static ArrayList<Viewer> viewers = new ArrayList<Viewer>();
 	protected static Analysis analysis;
 	
-	
-	protected static void popupMsg(String msg) {
-		JOptionPane.showMessageDialog(null, msg);
+	public static void startAnalysis(String analysisType, String country, String countryCode, int from, int to) {
+		if(!yearCheck(from, to)) {
+			Helper.popupMsg("Starting year has to be less or equal to Ending year");			
+		}else {		
+			if(!passExclusionCheck(country)) {
+				Helper.popupMsg(country + "'s data is unavailable, please select another country");
+			}else {
+				MainUI.west.removeAll();
+				MainUI.west.validate();
+				MainUI.west.repaint();
+				
+				analysisType = String.valueOf(MainUI.methodsList.getSelectedItem()); 
+				
+				analysis.runAnalyses(countryCode, from, to);
+				analysis.updateObservers(AnalysisFacade.viewers);
+								
+				setStrategy(analysisType); //Set Graph display strategy for existing viewers
+							
+				MainUI.countriesList.setEnabled(false);	
+				MainUI.fromList.setEnabled(false);
+				MainUI.toList.setEnabled(false);
+				MainUI.methodsList.setEnabled(false);
+				MainUI.recalculate.setEnabled(false);
+				MainUI.viewsList.setEnabled(false);
+				MainUI.addView.setEnabled(false);
+				MainUI.removeView.setEnabled(false);				
+			}					
+		}
 	}
-	
-	protected static void loadUserData(String path) throws Exception{
-	    	
-	    CsvReader reader = new CsvReader(path); 
-	    reader.readHeaders();
-	    while(reader.readRecord()){
-	    	LoginModule.emails.add(reader.get("email"));
-	    	LoginModule.passwords.add(reader.get("password"));
-	    }
-	   
-	}
-	
-	protected static void loadCountryData() throws Exception{
-		String countryPath = "all_countries.csv";
 		
-		CsvReader reader;
-		MainUI.countryHashMap = new HashMap<String, String>();
-		
-		reader = new CsvReader(countryPath);
-		reader.readHeaders();
-		while(reader.readRecord()){
-			String country = reader.get("name");
-			String code = reader.get("country");
-			MainUI.countryHashMap.put(country, code);
-        } 	
-   
-	}
-	
-	protected static void setStrategy(String analysisType) {
+	private static void setStrategy(String analysisType) {
 		for(int i = 0; i < AnalysisFacade.viewers.size(); i++) {
 			Strategy strategy = null;
 			
@@ -83,14 +81,13 @@ class AnalysisFacade {
 		}
 	}
 	
-	public static boolean yearCheck(int from, int to) {
+	private static boolean yearCheck(int from, int to) {
 		return (from > to) ? false : true;
 	}
 	
-	public static boolean passExclusionCheck(String country) {
+	private static boolean passExclusionCheck(String country) {
 		String path = "excluded_countries.csv";
-		ArrayList<String> excludedCountries = new ArrayList<String>();
-		
+		ArrayList<String> excludedCountries = new ArrayList<String>();	
 		CsvReader reader;
 		try {
 			reader = new CsvReader(path);
@@ -99,13 +96,12 @@ class AnalysisFacade {
 		    	excludedCountries.add(reader.get("name"));
 		    }
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-	    	    
+		} 	    	    
 		return (excludedCountries.contains(country)) ? false : true;
 		
 	}
+	
 	
 	
 }

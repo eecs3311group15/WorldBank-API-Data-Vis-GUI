@@ -1,6 +1,7 @@
 package gui;
 
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,7 +41,7 @@ public class LoginModule extends JFrame{
     	pass = new JLabel("Password:");
     	button = new JButton("Login");
     	
-    	AnalysisFacade.loadUserData(path);
+    	Helper.loadUserData(path);
    
     	panel.setLayout(null);
     	

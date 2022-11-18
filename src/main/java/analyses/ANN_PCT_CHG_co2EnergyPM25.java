@@ -1,12 +1,11 @@
 package analyses;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.google.gson.JsonArray;
 
-import datafetcher.*;
+import datafetcher.DataFetcher;
+import datafetcher.DataFetcherHelper;
 
 public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	

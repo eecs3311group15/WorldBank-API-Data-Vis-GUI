@@ -21,8 +21,6 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-import analyses.Analysis;
-import analyses.AnalysisFactory;
 import analyses.DataContainer;
 
 public class Strategy_Line extends Strategy{

@@ -23,7 +23,7 @@ public class Listener_RemoveView implements ActionListener{
 			MainUI.getInstance().repaint();
 			
 		}else {
-			AnalysisFacade.popupMsg("There are no Viewer on screen.");
+			Helper.popupMsg("There are no Viewer on screen.");
 		}		
 	}
 

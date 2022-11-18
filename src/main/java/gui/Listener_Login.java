@@ -34,7 +34,7 @@ class Listener_Login implements ActionListener{
 		else {		
 			System.out.println(user + "  " + password);
 			System.out.println("Login Failed");	
-			AnalysisFacade.popupMsg("Wrong UserID or Password (Tester account: ID: t4  PW: t4t4 )");
+			Helper.popupMsg("Wrong UserID or Password (Tester account: ID: t4  PW: t4t4 )");
 		}
 		
 	}

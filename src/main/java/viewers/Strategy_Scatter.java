@@ -19,7 +19,6 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
 
 import analyses.DataContainer;
 

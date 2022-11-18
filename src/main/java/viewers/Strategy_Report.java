@@ -10,10 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.Year;
-import org.jfree.data.xy.XYSeries;
-
 import analyses.DataContainer;
 
 public class Strategy_Report extends Strategy{

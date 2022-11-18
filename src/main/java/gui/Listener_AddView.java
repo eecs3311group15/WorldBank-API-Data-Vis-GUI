@@ -33,7 +33,7 @@ class Listener_AddView implements ActionListener{
 			AnalysisFacade.viewers.add(new Viewer(analysisType));				
 			
 		}else {				
-			AnalysisFacade.popupMsg(analysisType + " is not compatible with " + viewerType);
+			Helper.popupMsg(analysisType + " is not compatible with " + viewerType);
 		}			
 			
 		
