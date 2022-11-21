@@ -45,24 +45,9 @@ public class Strategy_Pie extends Strategy{
 		
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
-		main.add(chartPanel);
-		return main;
-		/*DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		dataset.addValue(3.946, "Unemployed", "Men");
-		dataset.addValue(96.054, "Employed", "Men");
-		dataset.addValue(3.837, "Unemployed", "Women");
-		dataset.addValue(96.163, "Employed", "Women");
-
-		JFreeChart pieChart = ChartFactory.createMultiplePieChart(viewerTitle, dataset,
-				TableOrder.BY_COLUMN, true, true, false);
-
-		chartPanel = new ChartPanel(pieChart);
-		chartPanel.setPreferredSize(new Dimension(400, 300));
-
-		
-		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-		chartPanel.setBackground(Color.white);*/
-		
+		viewerPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		viewerPanel.add(chartPanel);
+		return viewerPanel;
+	
 	}
 }

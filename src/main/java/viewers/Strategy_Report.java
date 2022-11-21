@@ -66,9 +66,9 @@ public class Strategy_Report extends Strategy{
 		
 		outputScrollPane = new JScrollPane(report, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		outputScrollPane.setPreferredSize(new Dimension(400, 300));
-		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
-		main.add(outputScrollPane);
-		return main;
+		viewerPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		viewerPanel.add(outputScrollPane);
+		return viewerPanel;
 		
 	}
 }

@@ -81,8 +81,8 @@ public class Strategy_Line extends Strategy{
 		chartPanel.setPreferredSize(new Dimension(400, 300));
 		chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 		chartPanel.setBackground(Color.white);
-		main.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
-		main.add(chartPanel);
-		return main;
+		viewerPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); 
+		viewerPanel.add(chartPanel);
+		return viewerPanel;
 	}
 }

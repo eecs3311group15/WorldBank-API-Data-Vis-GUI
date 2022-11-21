@@ -6,7 +6,7 @@ public abstract class Strategy implements GraphStrategy{
 	
 	
 	String viewerTitle = "";
-	JPanel main = new JPanel();
+	JPanel viewerPanel = new JPanel();
 	
 	Strategy(String viewerTitle){
 		this.viewerTitle = viewerTitle;

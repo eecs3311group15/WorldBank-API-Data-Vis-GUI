@@ -1,12 +1,7 @@
 package gui;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.swing.JOptionPane;
-
 import com.csvreader.CsvReader;
-
 import analyses.Analysis;
 import viewers.Strategy;
 import viewers.Strategy_Bar;
