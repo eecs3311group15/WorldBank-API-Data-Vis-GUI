@@ -76,7 +76,13 @@ class AnalysisFacade {
 				strategy = new Strategy_Pie(analysisType);
 				
 			}else if(AnalysisFacade.selectedStrategies.get(i).equals("Report")) {
-				strategy = new Strategy_Report(analysisType);
+				if(analysisType.equals("Average of education expenditure") || analysisType.equals("Average of Forest - Land")) {
+					int from = Integer.parseInt(String.valueOf (MainUI.fromList.getSelectedItem()));
+					int to = Integer.parseInt(String.valueOf (MainUI.toList.getSelectedItem()));
+					strategy = new Strategy_Report(analysisType, from, to);
+				}else {
+					strategy = new Strategy_Report(analysisType);
+				}
 				
 			}else if(AnalysisFacade.selectedStrategies.get(i).equals("Scatter Chart")) {
 				strategy = new Strategy_Scatter(analysisType);

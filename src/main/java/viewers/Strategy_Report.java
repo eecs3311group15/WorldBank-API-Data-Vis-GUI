@@ -14,11 +14,20 @@ import javax.swing.JTextArea;
 import analyses.DataContainer;
 
 public class Strategy_Report extends Strategy{
-
+	private int from, to;
+	private boolean avgAnalysis;
+	
 	public Strategy_Report(String viewerTitle) {
-		super(viewerTitle);		
+		super(viewerTitle);	
+		avgAnalysis = false;
 	}
-
+	public Strategy_Report(String viewerTitle, int from, int to) {
+		super(viewerTitle);		
+		this.from = from;
+		this.to = to;
+		avgAnalysis = true;
+	}
+	
 	public JPanel updateGraph(DataContainer data) {
 		HashMap<String, ArrayList<Double>> resultMap = data.getData();
 		ArrayList<String> description = data.getDescription();
@@ -29,7 +38,11 @@ public class Strategy_Report extends Strategy{
 		for(int i = 0; i < size; i++) {
 			String temp = description.get(i) + "\n";				
 			for(String k : resultMap.keySet()) {	
-				temp = temp + "For year " + k + ": ";
+				if(avgAnalysis == true) {
+					temp = temp + "The Average between " + from + " to " + to + " is ";
+				}else {
+					temp = temp + "For year " + k + ": ";
+				}
 				ArrayList<Double> thisYearData = resultMap.get(k);
 				DecimalFormat df = new DecimalFormat("####0.00");
 				temp = temp + df.format(thisYearData.get(i))   + "\n";

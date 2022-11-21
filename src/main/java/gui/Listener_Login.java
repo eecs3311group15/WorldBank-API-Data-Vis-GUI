@@ -24,6 +24,15 @@ class Listener_Login implements ActionListener{
 			System.out.println("Login Success");
 			LoginModule.f.setVisible(false);
 			success = 0;
+			Helper.popupMsg("README:\n"
+					+ "Please select a type of Analysis first (Once a Viewer has been added, you can no longer "
+					+ "modify the selected Analysis. \nReason: "
+					+ "Due to UC5/UC6, some analyses are not compatible with some type of Viewers)\n"
+					+ "Please use RESET button if you want to change Analysis.\n"
+					+ "How we handle partially missing data: \n"
+					+ "If data in any year of the selected time frame is partially missing, "
+					+ "the entire year's data is removed from the graph"
+			);
 			try {
 				MainUI.startMainUI();
 			} catch (IOException e1) {
