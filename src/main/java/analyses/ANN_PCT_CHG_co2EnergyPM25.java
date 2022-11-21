@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 	
@@ -28,24 +27,24 @@ public class ANN_PCT_CHG_co2EnergyPM25 extends Analysis{
 		JsonArray energy = DataFetcher.getJsonObject(energycode, country, _from, to);
 		JsonArray pm25 = DataFetcher.getJsonObject(pm25code, country, _from, to);
 		
-		analysis_description.add(DataFetcherHelper.getDescription(co2));
-		analysis_description.add(DataFetcherHelper.getDescription(energy));
-		analysis_description.add(DataFetcherHelper.getDescription(pm25));
+		analysis_description.add(DataFetcher.getDescription(co2));
+		analysis_description.add(DataFetcher.getDescription(energy));
+		analysis_description.add(DataFetcher.getDescription(pm25));
 		
 		int sizeOfResults = to - from;
 		for (int i = 1; i < sizeOfResults - 1; i++) {
-			int year = DataFetcherHelper.getYear(co2, i);
+			int year = DataFetcher.getYear(co2, i);
 			
-			double co2Value = DataFetcherHelper.getValue(co2, i);
-			double prev_co2Value = DataFetcherHelper.getValue(co2, i - 1);
+			double co2Value = DataFetcher.getValue(co2, i);
+			double prev_co2Value = DataFetcher.getValue(co2, i - 1);
 			double co2_diff = co2Value - prev_co2Value;
 			
-			double energyValue = DataFetcherHelper.getValue(energy, i);
-			double prev_energyValue = DataFetcherHelper.getValue(energy, i - 1);
+			double energyValue = DataFetcher.getValue(energy, i);
+			double prev_energyValue = DataFetcher.getValue(energy, i - 1);
 			double energy_diff = energyValue - prev_energyValue;
 						
-			double pm25Value = DataFetcherHelper.getValue(pm25, i);
-			double prev_pm25Value = DataFetcherHelper.getValue(pm25, i - 1);
+			double pm25Value = DataFetcher.getValue(pm25, i);
+			double prev_pm25Value = DataFetcher.getValue(pm25, i - 1);
 			double pm25_diff = pm25Value - prev_pm25Value;
 				
 			double co2_pct = (co2_diff/co2Value) * 100.0;	

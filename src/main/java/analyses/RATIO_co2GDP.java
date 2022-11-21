@@ -1,11 +1,8 @@
 package analyses;
 
 import java.util.ArrayList;
-
 import com.google.gson.JsonArray;
-
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class RATIO_co2GDP extends Analysis{
 	
@@ -28,9 +25,9 @@ public class RATIO_co2GDP extends Analysis{
 		
 		int sizeOfResults = co2.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {
-			int year = DataFetcherHelper.getYear(co2, i);
-			double co2Value = DataFetcherHelper.getValue(co2, i);
-			double gdpValue = DataFetcherHelper.getValue(gdp, i);
+			int year = DataFetcher.getYear(co2, i);
+			double co2Value = DataFetcher.getValue(co2, i);
+			double gdpValue = DataFetcher.getValue(gdp, i);
 			
 			if(co2Value == -999 || gdpValue == -999) {
 				continue;

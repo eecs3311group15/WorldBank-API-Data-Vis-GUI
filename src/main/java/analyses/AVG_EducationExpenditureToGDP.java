@@ -1,11 +1,8 @@
 package analyses;
 
 import java.util.ArrayList;
-
 import com.google.gson.JsonArray;
-
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class AVG_EducationExpenditureToGDP extends Analysis{
 
@@ -23,13 +20,13 @@ public class AVG_EducationExpenditureToGDP extends Analysis{
 	
 	public void runAnalyses(String country, int from, int to) {
 		JsonArray educationExp = DataFetcher.getJsonObject(educationCode, country, from, to);		
-		analysis_description.add(DataFetcherHelper.getDescription(educationExp));
+		analysis_description.add(DataFetcher.getDescription(educationExp));
 		analysis_description.add("All other purposes");
 		
 		int sizeOfResults = educationExp.get(1).getAsJsonArray().size();
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {
-			double educationExpValue = DataFetcherHelper.getValue(educationExp, i);			
+			double educationExpValue = DataFetcher.getValue(educationExp, i);			
 			if(educationExpValue == -999) {
 				continue;
 			}
@@ -45,7 +42,7 @@ public class AVG_EducationExpenditureToGDP extends Analysis{
 		thisYearData.add(avg_result);
 		thisYearData.add(rest_result);
 		
-		int year = DataFetcherHelper.getYear(educationExp, 0);
+		int year = DataFetcher.getYear(educationExp, 0);
 		resultMap.put(""+year, thisYearData);
 	}
 

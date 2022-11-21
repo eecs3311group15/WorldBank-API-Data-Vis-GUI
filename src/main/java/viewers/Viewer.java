@@ -10,28 +10,28 @@ import javax.swing.JPanel;
 import analyses.DataContainer;
 
 public class Viewer implements DataObserver{
-	JPanel main;
+	JPanel viewPanel;
 	String viewerTitle;
 	GraphStrategy strategy;
 	DataContainer data;
 	
 	public Viewer(String viewerTitle){
 		this.viewerTitle = viewerTitle;
-		main = new JPanel();
+		viewPanel = new JPanel();
 		JLabel text = new JLabel("Please press Recalculate to display analysis results");
-		main.add(text);
-		main.setPreferredSize(new Dimension(400, 300));
-		main.setBorder(BorderFactory.createTitledBorder(viewerTitle));
-		main.setBackground(Color.white);
+		viewPanel.add(text);
+		viewPanel.setPreferredSize(new Dimension(400, 300));
+		viewPanel.setBorder(BorderFactory.createTitledBorder(viewerTitle));
+		viewPanel.setBackground(Color.white);
 	}
 	
 	public void setStrategy(GraphStrategy strategy) {
 		this.strategy = strategy;
-		this.main = strategy.updateGraph(data);
+		this.viewPanel = strategy.updateGraph(data);
 	}
 	
 	public void addToPanel(JPanel west) { 
-		west.add(main); 
+		west.add(viewPanel); 
 	}
 	
 	public void update(DataContainer data) {

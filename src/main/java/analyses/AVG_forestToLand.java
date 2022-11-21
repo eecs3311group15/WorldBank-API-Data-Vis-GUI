@@ -1,11 +1,8 @@
 package analyses;
 
 import java.util.ArrayList;
-
 import com.google.gson.JsonArray;
-
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class AVG_forestToLand extends Analysis{
 	
@@ -22,13 +19,13 @@ public class AVG_forestToLand extends Analysis{
 	
 	public void runAnalyses(String country, int from, int to) {
 		JsonArray forest = DataFetcher.getJsonObject(forestCode, country, from, to);
-		analysis_description.add(DataFetcherHelper.getDescription(forest));
+		analysis_description.add(DataFetcher.getDescription(forest));
 		analysis_description.add("All other purposes");
 		
 		int sizeOfResults = forest.get(1).getAsJsonArray().size();
 		double sum = 0;
 		for (int i = 0; i < sizeOfResults; i++) {
-			double forestValue = DataFetcherHelper.getValue(forest, i);	
+			double forestValue = DataFetcher.getValue(forest, i);	
 			if(forestValue == -999) {
 				continue;
 			}
@@ -40,7 +37,7 @@ public class AVG_forestToLand extends Analysis{
 		thisYearData.add(avg_result);
 		thisYearData.add(rest_result);
 		
-		int year = DataFetcherHelper.getYear(forest, 0);
+		int year = DataFetcher.getYear(forest, 0);
 		resultMap.put(""+year, thisYearData);
 	}
 

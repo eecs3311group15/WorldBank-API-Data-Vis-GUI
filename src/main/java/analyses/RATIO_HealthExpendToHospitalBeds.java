@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 
@@ -29,9 +28,9 @@ public class RATIO_HealthExpendToHospitalBeds extends Analysis{
 		
 		int sizeOfResults = healthExp.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {
-			int year = DataFetcherHelper.getYear(healthExp, i);
-			double healthExpValue = DataFetcherHelper.getValue(healthExp, i);
-			double hospitalBedsValue = DataFetcherHelper.getValue(hospitalBeds, i);
+			int year = DataFetcher.getYear(healthExp, i);
+			double healthExpValue = DataFetcher.getValue(healthExp, i);
+			double hospitalBedsValue = DataFetcher.getValue(hospitalBeds, i);
 			
 			if(healthExpValue == -999 || hospitalBedsValue == -999) {
 				continue;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.google.gson.JsonArray;
 
 import datafetcher.DataFetcher;
-import datafetcher.DataFetcherHelper;
 
 public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 
@@ -25,15 +24,15 @@ public class GRAPH_AccHealthCareToMortalityRate extends Analysis{
 		JsonArray accHealthCare = DataFetcher.getJsonObject(accessCode, country, from, to);
 		JsonArray moratlityRate = DataFetcher.getJsonObject(mortalityCode, country, from, to);
 		
-		analysis_description.add(DataFetcherHelper.getDescription(accHealthCare));
-		analysis_description.add(DataFetcherHelper.getDescription(moratlityRate));
+		analysis_description.add(DataFetcher.getDescription(accHealthCare));
+		analysis_description.add(DataFetcher.getDescription(moratlityRate));
 		
 		int sizeOfResults = accHealthCare.get(1).getAsJsonArray().size();
 		for (int i = 0; i < sizeOfResults; i++) {
-			int year = DataFetcherHelper.getYear(accHealthCare, i);
+			int year = DataFetcher.getYear(accHealthCare, i);
 			
-			double accHealthCareValue = DataFetcherHelper.getValue(accHealthCare, i);
-			double moratlityRateValue = DataFetcherHelper.getValue(moratlityRate, i);
+			double accHealthCareValue = DataFetcher.getValue(accHealthCare, i);
+			double moratlityRateValue = DataFetcher.getValue(moratlityRate, i);
 			
 			System.out.println("1: " + accHealthCareValue  + "   2:  " + moratlityRateValue);
 			if(accHealthCareValue == -999 || moratlityRateValue == -999) {
