@@ -45,4 +45,9 @@ class Listener_AddView implements ActionListener{
 
 	}
 
+	public void execute() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

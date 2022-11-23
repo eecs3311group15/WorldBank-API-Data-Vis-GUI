@@ -51,7 +51,6 @@ public class DataFetcher {
 			double result;
 			try {
 				result = jsonObj.get(1).getAsJsonArray().get(index).getAsJsonObject().get("value").getAsDouble();
-				System.out.println("restult: " + result);
 				if (result == 0 || result == -0) {
 					result = -999;
 				}
