@@ -91,11 +91,11 @@ class AnalysisFacade {
 		}
 	}
 	
-	private static boolean yearCheck(int from, int to) {
+	static boolean yearCheck(int from, int to) {
 		return (from > to) ? false : true;
 	}
 	
-	private static boolean passExclusionCheck(String country) {
+	static boolean passExclusionCheck(String country) {
 		String path = "excluded_countries.csv";
 		ArrayList<String> excludedCountries = new ArrayList<String>();	
 		CsvReader reader;
