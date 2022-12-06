@@ -7,20 +7,16 @@ import java.io.IOException;
 class Listener_Login implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
+		
 		String user = LoginModule.userT.getText();
 		String password = LoginModule.passT.getText();
+			
 		int success = 0;
 		
-		for(int i = 0; i < LoginModule.emails.size(); i++) {			
-			
-			if (user.equals(LoginModule.emails.get(i)) && password.equals(LoginModule.passwords.get(i))) {			
-				success = 1;				
-			}	
-		}
+		success = correctLogin(user, password);
 	
 		if (success == 1) {
 		
-			System.out.println(user + "  " + password);
 			System.out.println("Login Success");
 			LoginModule.f.setVisible(false);
 			success = 0;
@@ -41,11 +37,27 @@ class Listener_Login implements ActionListener{
 			}
 		}		
 		else {		
-			System.out.println(user + "  " + password);
+			
 			System.out.println("Login Failed");	
 			Helper.popupMsg("Wrong UserID or Password (Tester account: ID: t4  PW: t4t4 )");
+			
 		}
 		
+	}
+	
+	public int correctLogin(String user, String pass) {
+		
+	for (int i = 0; i < LoginModule.emails.size(); i++) {			
+			
+			if (user.equals(LoginModule.emails.get(i)) && pass.equals(LoginModule.passwords.get(i))) {	
+				
+				return 1;			
+				
+			}	
+		}
+		
+	return 0;
+	
 	}
 
 }
