@@ -29,6 +29,9 @@ public class Viewer implements DataObserver{
 		this.strategy = strategy;
 		this.viewPanel = strategy.updateGraph(data);
 	}
+	public String getTitle() {
+		return this.viewerTitle;
+	}
 	
 	public void addToPanel(JPanel west) { 
 		west.add(viewPanel); 
