@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="2" timestamp="1670522078255" analysisTimestamp="1670522078246" release="">
+  <Project projectName="Project1.2">
+    <Jar>E:\eclipse-workspace\Project1.2\target\classes</Jar>
+    <Jar>E:\eclipse-workspace\Project1.2\target\test-classes</Jar>
+    <AuxClasspathEntry>E:\eclipse-workspace\Project1.2\target\classes</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\eclipse-workspace\Project1.2\target\test-classes</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\yihan\.m2\repository\com\google\code\gson\gson\2.2.2\gson-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\yihan\.m2\repository\org\jfree\jfreechart\1.5.0\jfreechart-1.5.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>E:\eclipse-workspace\Project1.2\lib\javacsv.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\yihan\.p2\pool\plugins\org.junit_4.13.2.v20211018-1956.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\yihan\.p2\pool\plugins\org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <SrcDir>E:\eclipse-workspace\Project1.2\src\main\java</SrcDir>
+    <SrcDir>E:\eclipse-workspace\Project1.2\src\test\java</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_EducationToHealth">
+      <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_EducationToHealth" name="educationCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" start="10" end="10" startBytecode="7" endBytecode="7" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_EducationToHealth">
+      <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_EducationToHealth" name="healthCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_EducationToHealth" start="11" end="11" startBytecode="13" endBytecode="13" sourcefile="ANN_PCT_CHG_EducationToHealth.java" sourcepath="analyses/ANN_PCT_CHG_EducationToHealth.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_co2EnergyPM25">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_co2EnergyPM25" name="co2code" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_co2EnergyPM25">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_co2EnergyPM25" name="energycode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_co2EnergyPM25">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_co2EnergyPM25" name="pm25code" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_co2EnergyPM25" start="13" end="13" startBytecode="19" endBytecode="19" sourcefile="ANN_PCT_CHG_co2EnergyPM25.java" sourcepath="analyses/ANN_PCT_CHG_co2EnergyPM25.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_pm25Forest">
+      <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_pm25Forest" name="forestcode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.ANN_PCT_CHG_pm25Forest">
+      <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+    </Class>
+    <Field classname="analyses.ANN_PCT_CHG_pm25Forest" name="pm25code" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+    </Field>
+    <SourceLine classname="analyses.ANN_PCT_CHG_pm25Forest" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="ANN_PCT_CHG_pm25Forest.java" sourcepath="analyses/ANN_PCT_CHG_pm25Forest.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.AVG_EducationExpenditureToGDP">
+      <SourceLine classname="analyses.AVG_EducationExpenditureToGDP" sourcefile="AVG_EducationExpenditureToGDP.java" sourcepath="analyses/AVG_EducationExpenditureToGDP.java"/>
+    </Class>
+    <Field classname="analyses.AVG_EducationExpenditureToGDP" name="educationCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.AVG_EducationExpenditureToGDP" sourcefile="AVG_EducationExpenditureToGDP.java" sourcepath="analyses/AVG_EducationExpenditureToGDP.java"/>
+    </Field>
+    <SourceLine classname="analyses.AVG_EducationExpenditureToGDP" start="9" end="9" startBytecode="7" endBytecode="7" sourcefile="AVG_EducationExpenditureToGDP.java" sourcepath="analyses/AVG_EducationExpenditureToGDP.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.AVG_forestToLand">
+      <SourceLine classname="analyses.AVG_forestToLand" sourcefile="AVG_forestToLand.java" sourcepath="analyses/AVG_forestToLand.java"/>
+    </Class>
+    <Field classname="analyses.AVG_forestToLand" name="forestCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.AVG_forestToLand" sourcefile="AVG_forestToLand.java" sourcepath="analyses/AVG_forestToLand.java"/>
+    </Field>
+    <SourceLine classname="analyses.AVG_forestToLand" start="9" end="9" startBytecode="7" endBytecode="7" sourcefile="AVG_forestToLand.java" sourcepath="analyses/AVG_forestToLand.java"/>
+  </BugInstance>
+  <BugInstance type="DB_DUPLICATE_BRANCHES" priority="2" rank="17" abbrev="DB" category="STYLE" first="1">
+    <Class classname="analyses.Analysis">
+      <SourceLine classname="analyses.Analysis" sourcefile="Analysis.java" sourcepath="analyses/Analysis.java"/>
+    </Class>
+    <Method classname="analyses.Analysis" name="hasData" signature="()Z" isStatic="false">
+      <SourceLine classname="analyses.Analysis" start="43" end="43" startBytecode="0" endBytecode="71" sourcefile="Analysis.java" sourcepath="analyses/Analysis.java"/>
+    </Method>
+    <SourceLine classname="analyses.Analysis" start="43" end="43" startBytecode="13" endBytecode="14" sourcefile="Analysis.java" sourcepath="analyses/Analysis.java"/>
+    <SourceLine classname="analyses.Analysis" start="43" end="43" startBytecode="17" endBytecode="17" sourcefile="Analysis.java" sourcepath="analyses/Analysis.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.GRAPH_AccHealthCareToMortalityRate">
+      <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+    </Class>
+    <Field classname="analyses.GRAPH_AccHealthCareToMortalityRate" name="accessCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+    </Field>
+    <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.GRAPH_AccHealthCareToMortalityRate">
+      <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+    </Class>
+    <Field classname="analyses.GRAPH_AccHealthCareToMortalityRate" name="mortalityCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+    </Field>
+    <SourceLine classname="analyses.GRAPH_AccHealthCareToMortalityRate" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="GRAPH_AccHealthCareToMortalityRate.java" sourcepath="analyses/GRAPH_AccHealthCareToMortalityRate.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.RATIO_HealthExpendToHospitalBeds">
+      <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+    </Class>
+    <Field classname="analyses.RATIO_HealthExpendToHospitalBeds" name="bedsCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+    </Field>
+    <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.RATIO_HealthExpendToHospitalBeds">
+      <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+    </Class>
+    <Field classname="analyses.RATIO_HealthExpendToHospitalBeds" name="healthCode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+    </Field>
+    <SourceLine classname="analyses.RATIO_HealthExpendToHospitalBeds" start="11" end="11" startBytecode="7" endBytecode="7" sourcefile="RATIO_HealthExpendToHospitalBeds.java" sourcepath="analyses/RATIO_HealthExpendToHospitalBeds.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.RATIO_co2GDP">
+      <SourceLine classname="analyses.RATIO_co2GDP" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+    </Class>
+    <Field classname="analyses.RATIO_co2GDP" name="co2code" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.RATIO_co2GDP" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+    </Field>
+    <SourceLine classname="analyses.RATIO_co2GDP" start="9" end="9" startBytecode="7" endBytecode="7" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE" first="1">
+    <Class classname="analyses.RATIO_co2GDP">
+      <SourceLine classname="analyses.RATIO_co2GDP" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+    </Class>
+    <Field classname="analyses.RATIO_co2GDP" name="gdpcode" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="analyses.RATIO_co2GDP" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+    </Field>
+    <SourceLine classname="analyses.RATIO_co2GDP" start="10" end="10" startBytecode="13" endBytecode="13" sourcefile="RATIO_co2GDP.java" sourcepath="analyses/RATIO_co2GDP.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="datafetcher.DataFetcher">
+      <SourceLine classname="datafetcher.DataFetcher" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Class>
+    <Method classname="datafetcher.DataFetcher" name="getJsonObject" signature="(Ljava/lang/String;Ljava/lang/String;II)Lcom/google/gson/JsonArray;" isStatic="true">
+      <SourceLine classname="datafetcher.DataFetcher" start="23" end="46" startBytecode="0" endBytecode="463" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Method>
+    <Method classname="java.util.Scanner" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Scanner"/>
+    </Method>
+    <SourceLine classname="datafetcher.DataFetcher" start="34" end="34" startBytecode="102" endBytecode="102" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    <SourceLine classname="datafetcher.DataFetcher" start="34" end="34" startBytecode="102" endBytecode="102" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+  </BugInstance>
+  <BugInstance type="RpC_REPEATED_CONDITIONAL_TEST" priority="1" rank="6" abbrev="RpC" category="CORRECTNESS" first="1">
+    <Class classname="datafetcher.DataFetcher">
+      <SourceLine classname="datafetcher.DataFetcher" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Class>
+    <Method classname="datafetcher.DataFetcher" name="getValue" signature="(Lcom/google/gson/JsonArray;I)D" isStatic="true">
+      <SourceLine classname="datafetcher.DataFetcher" start="53" end="61" startBytecode="0" endBytecode="195" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Method>
+    <SourceLine classname="datafetcher.DataFetcher" start="54" end="54" startBytecode="24" endBytecode="26" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    <SourceLine classname="datafetcher.DataFetcher" start="54" end="54" startBytecode="30" endBytecode="32" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="datafetcher.DataFetcher">
+      <SourceLine classname="datafetcher.DataFetcher" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Class>
+    <Method classname="datafetcher.DataFetcher" name="getJsonObject" signature="(Ljava/lang/String;Ljava/lang/String;II)Lcom/google/gson/JsonArray;" isStatic="true">
+      <SourceLine classname="datafetcher.DataFetcher" start="23" end="46" startBytecode="0" endBytecode="463" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+    </Method>
+    <SourceLine classname="datafetcher.DataFetcher" start="36" end="36" startBytecode="115" endBytecode="115" sourcefile="DataFetcher.java" sourcepath="datafetcher/DataFetcher.java"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_PARAM_DEREF" priority="2" rank="8" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="gui.AnalysisFacade">
+      <SourceLine classname="gui.AnalysisFacade" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java"/>
+    </Class>
+    <Method classname="gui.AnalysisFacade" name="setStrategy" signature="(Ljava/lang/String;)V" isStatic="true">
+      <SourceLine classname="gui.AnalysisFacade" start="61" end="92" startBytecode="0" endBytecode="485" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java"/>
+    </Method>
+    <Method classname="viewers.Viewer" name="setStrategy" signature="(Lviewers/GraphStrategy;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="viewers.Viewer" start="29" end="31" startBytecode="0" endBytecode="79" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+    </Method>
+    <Int value="1" role="INT_MAYBE_NULL_ARG"/>
+    <LocalVariable name="strategy" register="2" pc="236" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="gui.AnalysisFacade" start="89" end="89" startBytecode="262" endBytecode="262" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java" role="SOURCE_LINE_INVOKED"/>
+    <SourceLine classname="gui.AnalysisFacade" start="62" end="62" startBytecode="12" endBytecode="12" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java" role="SOURCE_LINE_NULL_VALUE"/>
+    <SourceLine classname="gui.AnalysisFacade" start="85" end="85" startBytecode="239" endBytecode="239" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java" role="SOURCE_LINE_KNOWN_NULL"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullDerefProperty.LONG_RANGE_NULL_SOURCE" value="true"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.Listener_AddView">
+      <SourceLine classname="gui.Listener_AddView" sourcefile="Listener_AddView.java" sourcepath="gui/Listener_AddView.java"/>
+    </Class>
+    <Method classname="gui.Listener_AddView" name="actionPerformed" signature="(Ljava/awt/event/ActionEvent;)V" isStatic="false">
+      <SourceLine classname="gui.Listener_AddView" start="13" end="46" startBytecode="0" endBytecode="429" sourcefile="Listener_AddView.java" sourcepath="gui/Listener_AddView.java"/>
+    </Method>
+    <Field classname="gui.AnalysisFacade" name="analysis" signature="Lanalyses/Analysis;" isStatic="true">
+      <SourceLine classname="gui.AnalysisFacade" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java"/>
+    </Field>
+    <SourceLine classname="gui.Listener_AddView" start="28" end="28" startBytecode="60" endBytecode="60" sourcefile="Listener_AddView.java" sourcepath="gui/Listener_AddView.java"/>
+    <SourceLine classname="gui.Listener_AddView" start="28" end="28" startBytecode="60" endBytecode="60" sourcefile="Listener_AddView.java" sourcepath="gui/Listener_AddView.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.Listener_Reset">
+      <SourceLine classname="gui.Listener_Reset" sourcefile="Listener_Reset.java" sourcepath="gui/Listener_Reset.java"/>
+    </Class>
+    <Method classname="gui.Listener_Reset" name="actionPerformed" signature="(Ljava/awt/event/ActionEvent;)V" isStatic="false">
+      <SourceLine classname="gui.Listener_Reset" start="10" end="26" startBytecode="0" endBytecode="198" sourcefile="Listener_Reset.java" sourcepath="gui/Listener_Reset.java"/>
+    </Method>
+    <Field classname="gui.AnalysisFacade" name="analysis" signature="Lanalyses/Analysis;" isStatic="true">
+      <SourceLine classname="gui.AnalysisFacade" sourcefile="AnalysisFacade.java" sourcepath="gui/AnalysisFacade.java"/>
+    </Field>
+    <SourceLine classname="gui.Listener_Reset" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="Listener_Reset.java" sourcepath="gui/Listener_Reset.java"/>
+    <SourceLine classname="gui.Listener_Reset" start="12" end="12" startBytecode="13" endBytecode="13" sourcefile="Listener_Reset.java" sourcepath="gui/Listener_Reset.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Field classname="gui.LoginModule" name="f" signature="Ljavax/swing/JFrame;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" start="21" end="21" startBytecode="0" endBytecode="0" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Field classname="gui.LoginModule" name="passT" signature="Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" start="20" end="20" startBytecode="0" endBytecode="0" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Field classname="gui.LoginModule" name="userT" signature="Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" start="19" end="19" startBytecode="0" endBytecode="0" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Field classname="gui.LoginModule" name="emails" signature="Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="23" end="23" startBytecode="7" endBytecode="7" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Field classname="gui.LoginModule" name="passwords" signature="Ljava/util/ArrayList;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="24" end="24" startBytecode="17" endBytecode="17" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="button" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="42" end="42" startBytecode="73" endBytecode="73" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="42" end="42" startBytecode="73" endBytecode="73" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="panel" signature="Ljavax/swing/JPanel;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="37" end="37" startBytecode="13" endBytecode="13" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="37" end="37" startBytecode="13" endBytecode="13" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="pass" signature="Ljavax/swing/JLabel;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="41" end="41" startBytecode="61" endBytecode="61" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="41" end="41" startBytecode="61" endBytecode="61" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="passT" signature="Ljavax/swing/JPasswordField;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="39" end="39" startBytecode="37" endBytecode="37" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="39" end="39" startBytecode="37" endBytecode="37" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="userName" signature="Ljavax/swing/JLabel;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="40" end="40" startBytecode="49" endBytecode="49" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="40" end="40" startBytecode="49" endBytecode="49" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE" first="1">
+    <Class classname="gui.LoginModule">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Class>
+    <Method classname="gui.LoginModule" name="&lt;init&gt;" signature="()V" isStatic="false">
+      <SourceLine classname="gui.LoginModule" start="35" end="63" startBytecode="0" endBytecode="346" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Method>
+    <Field classname="gui.LoginModule" name="userT" signature="Ljavax/swing/JTextField;" isStatic="true">
+      <SourceLine classname="gui.LoginModule" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    </Field>
+    <SourceLine classname="gui.LoginModule" start="38" end="38" startBytecode="25" endBytecode="25" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+    <SourceLine classname="gui.LoginModule" start="38" end="38" startBytecode="25" endBytecode="25" sourcefile="LoginModule.java" sourcepath="gui/LoginModule.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="addView" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="31" end="31" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="countriesList" signature="Ljavax/swing/JComboBox;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="37" end="37" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="fromList" signature="Ljavax/swing/JComboBox;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="35" end="35" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="methodsList" signature="Ljavax/swing/JComboBox;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="38" end="38" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="recalculate" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="29" end="29" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="removeView" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="32" end="32" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="reset" signature="Ljavax/swing/JButton;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="30" end="30" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="toList" signature="Ljavax/swing/JComboBox;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="36" end="36" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="viewsList" signature="Ljavax/swing/JComboBox;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="34" end="34" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" first="1">
+    <Class classname="gui.MainUI">
+      <SourceLine classname="gui.MainUI" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Class>
+    <Field classname="gui.MainUI" name="west" signature="Ljavax/swing/JPanel;" isStatic="true">
+      <SourceLine classname="gui.MainUI" start="28" end="28" startBytecode="0" endBytecode="0" sourcefile="MainUI.java" sourcepath="gui/MainUI.java"/>
+    </Field>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" first="1">
+    <Class classname="viewers.Strategy_Report">
+      <SourceLine classname="viewers.Strategy_Report" sourcefile="Strategy_Report.java" sourcepath="viewers/Strategy_Report.java"/>
+    </Class>
+    <Method classname="viewers.Strategy_Report" name="updateGraph" signature="(Lanalyses/DataContainer;)Ljavax/swing/JPanel;" isStatic="false">
+      <SourceLine classname="viewers.Strategy_Report" start="32" end="71" startBytecode="0" endBytecode="880" sourcefile="Strategy_Report.java" sourcepath="viewers/Strategy_Report.java"/>
+    </Method>
+    <SourceLine classname="viewers.Strategy_Report" start="48" end="48" startBytecode="208" endBytecode="208" sourcefile="Strategy_Report.java" sourcepath="viewers/Strategy_Report.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="viewers.Viewer">
+      <SourceLine classname="viewers.Viewer" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+    </Class>
+    <Field classname="viewers.Viewer" name="strategy" signature="Lviewers/GraphStrategy;" isStatic="false">
+      <SourceLine classname="viewers.Viewer" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+    </Field>
+    <SourceLine classname="viewers.Viewer" start="29" end="29" startBytecode="2" endBytecode="2" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="viewers.Viewer">
+      <SourceLine classname="viewers.Viewer" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+    </Class>
+    <Field classname="viewers.Viewer" name="viewerTitle" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="viewers.Viewer" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+    </Field>
+    <SourceLine classname="viewers.Viewer" start="19" end="19" startBytecode="6" endBytecode="6" sourcefile="Viewer.java" sourcepath="viewers/Viewer.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 8 Dec 2022 12:54:38 -0500" total_classes="0" referenced_classes="0" total_bugs="46" total_size="0" num_packages="4" java_version="17.0.4.1" vm_version="17.0.4.1+1" cpu_seconds="9.20" clock_seconds="10533.45" peak_mbytes="506.20" alloc_mbytes="2048.00" gc_seconds="0.02" priority_2="42" priority_1="4">
+    <FindBugsProfile></FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1670522042112" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="1" timestamp="1670522042112" release="" codeSize="1048" numClasses="34"/>
+  </History>
+</BugCollection>
